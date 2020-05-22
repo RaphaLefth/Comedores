@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "799039897598",
+    "firebase_url": "https://integrador-5a610.firebaseio.com",
+    "project_id": "integrador-5a610",
+    "storage_bucket": "integrador-5a610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799039897598:android:05a66b96ca13d348dfcaaf",
+        "android_client_info": {
+          "package_name": "com.example.comedor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799039897598-fppq9fomh58vhen3tiacs1em6esbc2pl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comedor",
+            "certificate_hash": "a0d2301e5253a99ab66ab7bafaf67e6036d19b8e"
+          }
+        },
+        {
+          "client_id": "799039897598-nrk4tia177sdhdel7evlh28scn82o6mb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtmtBjPDs3OllkHgLxIGhQanVo2fpmHSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799039897598-nrk4tia177sdhdel7evlh28scn82o6mb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

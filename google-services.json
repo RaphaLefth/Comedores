@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "767193777662",
+    "firebase_url": "https://lawea-d1d7c.firebaseio.com",
+    "project_id": "lawea-d1d7c",
+    "storage_bucket": "lawea-d1d7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767193777662:android:749c51221bdadae844acaf",
+        "android_client_info": {
+          "package_name": "com.example.comedorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767193777662-m4g610cqaggi4nlu21al464bc5b14cgh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comedorapp",
+            "certificate_hash": "a0d2301e5253a99ab66ab7bafaf67e6036d19b8e"
+          }
+        },
+        {
+          "client_id": "767193777662-gv8oj166t1dm9a4ggm4079cv2dj3dg1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRqQgztiXrXdSyKC4kNbA4Oo8pkhqUXX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767193777662-gv8oj166t1dm9a4ggm4079cv2dj3dg1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

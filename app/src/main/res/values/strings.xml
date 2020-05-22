@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Comedor</string>
+    <string name="name">Nombre</string>
+    <string name="lastname">Apellido</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="accountText">Crear cuenta</string>
+    <string name="emailTxt">Ingrese email</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="recoverPassword">¿Olvidaste tu contraseña?</string>
+    <string name="createNewUser">Crear una cuenta</string>
+    <string name="forgottext">Ingrese su cuenta de correo</string>
+    <string name="sendPass">Enviar contraseña</string>
+</resources>
