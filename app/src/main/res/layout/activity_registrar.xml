@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:text="@string/accountText"
         android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/widget_edittext_dark"
         android:layout_margin="10dp"/>
 
 </LinearLayout>
