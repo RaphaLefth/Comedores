@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 progressbar.visibility = View.VISIBLE
                 presenter.signInUser(user,password)
         }else{
-            txtUser.setError("Required")
+            txtUser.error = "Required"
             txtPassword.error = "Required"
         }
 
