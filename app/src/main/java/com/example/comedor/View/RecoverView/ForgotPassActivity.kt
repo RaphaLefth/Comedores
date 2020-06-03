@@ -1,4 +1,4 @@
-package com.example.comedor
+package com.example.comedor.View.RecoverView
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.comedor.R
 import com.example.comedor.View.LoginView.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 

@@ -1,4 +1,4 @@
-package com.example.comedor.View.LoginView.MainView
+package com.example.comedor.View.MainView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

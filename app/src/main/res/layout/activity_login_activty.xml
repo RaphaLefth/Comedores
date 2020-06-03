@@ -9,7 +9,7 @@
 
     <ProgressBar
         android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.Material.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -33,6 +33,9 @@
         android:hint="@string/password"
         android:layout_margin="10dp"/>
 
+
+
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
@@ -41,7 +44,7 @@
         android:layout_margin="10dp"
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"/>
-<!--        android:onClick="login"-->
+    <!--        android:onClick="login"-->
 
 
 

@@ -3,22 +3,15 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import com.example.comedor.View.LoginView.MainView.MainActivity
+import com.example.comedor.View.MainView.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 
- class LoginPresenter(var mContext: Context,
-                      var mAuth : FirebaseAuth,var mDatabase: DatabaseReference) {
+ class LoginPresenter(
+     private var mContext: Context,
+     private var mAuth : FirebaseAuth, private var mDatabase: DatabaseReference) {
 
-
-
-
-
-
-  //  private lateinit var mAuth : FirebaseAuth
      private var TAG : String = ""
-
-
 
      fun signInUser(email: String,password: String){
             mAuth.signInWithEmailAndPassword(email,password)
@@ -26,7 +19,8 @@ import com.google.firebase.database.DatabaseReference
                     task ->
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
-                        mDatabase.child("User").setValue(task.result!!.user!!.uid)
+
+                       // mDatabase.child("User").setValue(task.result!!.user!!.uid)
 
                         action()
 
