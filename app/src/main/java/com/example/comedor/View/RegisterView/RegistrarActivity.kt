@@ -80,10 +80,6 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener{
 //                    }
 //        }
     }
-    private fun action(){
-        startActivity(Intent(this,
-            LoginActivity::class.java))
-    }
     private fun verifyEmail(user: FirebaseUser?){
         user?.sendEmailVerification()?.addOnCompleteListener(this){
             task ->
