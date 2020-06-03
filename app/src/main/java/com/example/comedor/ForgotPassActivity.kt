@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.comedor.View.LoginView.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPassActivity : AppCompatActivity() {
@@ -32,7 +33,8 @@ class ForgotPassActivity : AppCompatActivity() {
                 task ->
                 if(task.isSuccessful){
                     progressbar.visibility = View.VISIBLE
-                        startActivity(Intent(this,LoginActivity::class.java))
+                        startActivity(Intent(this,
+                            LoginActivity::class.java))
                 }else{
                     Toast.makeText(this,"Error al enviar email", Toast.LENGTH_LONG).show()
 

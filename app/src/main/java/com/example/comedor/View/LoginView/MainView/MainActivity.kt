@@ -1,7 +1,8 @@
-package com.example.comedor
+package com.example.comedor.View.LoginView.MainView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.comedor.R
 
 class MainActivity : AppCompatActivity() {
 

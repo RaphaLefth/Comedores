@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.comedor.View.LoginView.LoginActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -71,7 +72,8 @@ class RegistrarActivity : AppCompatActivity() {
         }
     }
     private fun action(){
-        startActivity(Intent(this,LoginActivity::class.java))
+        startActivity(Intent(this,
+            LoginActivity::class.java))
     }
     private fun verifyEmail(user: FirebaseUser?){
         user?.sendEmailVerification()?.addOnCompleteListener(this){
