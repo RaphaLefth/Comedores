@@ -8,6 +8,10 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
+<<<<<<< HEAD
+=======
+import com.example.comedor.View.LoginView.LoginActivity
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -50,6 +54,10 @@ class RegistrarActivity : AppCompatActivity() {
         val email : String = txtEmail.text.toString()
         val password : String = txtPassword.text.toString()
 
+<<<<<<< HEAD
+=======
+//       val sd = User("",nameUser,lastNameUser,email,password)
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
 
 
         if(!TextUtils.isEmpty(nameUser) && !TextUtils.isEmpty(lastNameUser)
@@ -70,7 +78,12 @@ class RegistrarActivity : AppCompatActivity() {
         }
     }
     private fun action(){
+<<<<<<< HEAD
         startActivity(Intent(this,LoginActivity::class.java))
+=======
+        startActivity(Intent(this,
+            LoginActivity::class.java))
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
     }
     private fun verifyEmail(user: FirebaseUser?){
         user?.sendEmailVerification()?.addOnCompleteListener(this){

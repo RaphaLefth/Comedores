@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+<<<<<<< HEAD
     tools:context=".LoginActivity">
+=======
+    tools:context=".View.LoginView.LoginActivity">
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -35,13 +39,24 @@
 
     <Button
         android:id="@+id/button"
+<<<<<<< HEAD
         android:onClick="login"
+=======
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:layout_margin="10dp"
+<<<<<<< HEAD
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>
+=======
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"/>
+<!--        android:onClick="login"-->
+
+
+>>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
 
 
     <TextView
