@@ -50,7 +50,6 @@ class RegistrarActivity : AppCompatActivity() {
         val email : String = txtEmail.text.toString()
         val password : String = txtPassword.text.toString()
 
-//       val sd = User("",nameUser,lastNameUser,email,password)
 
 
         if(!TextUtils.isEmpty(nameUser) && !TextUtils.isEmpty(lastNameUser)
