@@ -4,11 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".MainActivity">
-=======
-    tools:context=".View.LoginView.MainView.MainActivity">
->>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
+    tools:context=".View.MainView.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
