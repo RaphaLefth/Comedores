@@ -1,5 +1,6 @@
 package com.example.comedor.Presenter.PrincipalPresenter
 
+import com.example.comedor.Models.User
 import android.content.Context
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -11,7 +12,7 @@ import com.google.firebase.database.ValueEventListener
 class PrincipalPresenter(private var mAuth: FirebaseAuth,
                          private var mDatabase: DatabaseReference,
                          private var context: Context) {
-    fun msg(){
+    fun welcomeMsg(){
         mDatabase.child("User").child(mAuth.currentUser!!.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(p0: DatabaseError) {
@@ -19,7 +20,8 @@ class PrincipalPresenter(private var mAuth: FirebaseAuth,
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    Toast.makeText(context,"Bienvenido "+p0.child("nombre").value,Toast.LENGTH_LONG).show()
+                    var user = p0.getValue(User::class.java)
+                    Toast.makeText(context,"Bienvenido "+ user!!.nombre,Toast.LENGTH_LONG).show()
                 }
 
             })
