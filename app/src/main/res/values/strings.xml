@@ -11,4 +11,5 @@
     <string name="createNewUser">Crear una cuenta</string>
     <string name="forgottext">Ingrese su cuenta de correo</string>
     <string name="sendPass">Enviar contraseña</string>
+    <string name="select_type">Tipo de cuenta:</string>
 </resources>

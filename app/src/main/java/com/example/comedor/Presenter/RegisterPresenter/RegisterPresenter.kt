@@ -16,9 +16,7 @@ class RegisterPresenter(private var context: Context,
                         private var auth: FirebaseAuth,private var database: DatabaseReference) {
     private var TAG : String = "RegisterPresenter"
 
- fun signUpUser(name:String, lastName: String, email: String, password: String) {
-//     val progressdial = ProgressBar(context)
-//     progressdial.tooltipText
+ fun signUpUser(name:String, lastName: String, email: String, password: String, typeUser : String) {
      auth.createUserWithEmailAndPassword(email,password)
          .addOnCompleteListener(){
                  task ->
@@ -28,17 +26,10 @@ class RegisterPresenter(private var context: Context,
                  map["lastname"] = lastName
                  map["email"]=email
                  map["password"]=password
+                 map["typeUser"] = typeUser
 
-                // val user : FirebaseUser? = auth.currentUser //uid
-                 //verifyEmail(user)
                  database.child("User").child(task.result!!.user!!.uid)
                      .updateChildren(map)
-//                 val userBD = database.child.("User").child(user!!.uid)
-//                 userBD.updateChildren(map)
-
-//                 userBD.child("LastName").setValue(lastName)
-//                 userBD.child("Email").setValue(email)
-//                 userBD.child("Password").setValue(password)
                  action()
              }else{
                  Toast.makeText(context,"Authentication failed",Toast.LENGTH_LONG).show()
