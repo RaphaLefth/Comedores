@@ -25,7 +25,7 @@ class LoginPresenter(
                     task ->
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
-
+                        //check typeUser
                         check()
 
                     }else{

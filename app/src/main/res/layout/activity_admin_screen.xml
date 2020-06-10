@@ -6,5 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".View.MainView.AdministratorActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="110dp"
+        android:id="@+id/rvtest"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
