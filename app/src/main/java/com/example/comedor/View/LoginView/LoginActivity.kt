@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         startActivity(Intent(this, ForgotPassActivity::class.java))
     }
 
-    fun register() {
+    private fun register() {
         startActivity(Intent(this, RegistrarActivity::class.java))
     }
 

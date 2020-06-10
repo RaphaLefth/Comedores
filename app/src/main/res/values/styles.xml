@@ -7,11 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-<<<<<<< HEAD
-=======
+
+<!--    <<<<<<< HEAD-->
+<!--=======-->
 	 <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
->>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993
+<!--&gt;>>>>>> 66e70d99c360d19b8f650abd34d1e51b3e0c1993-->
 
 </resources>
