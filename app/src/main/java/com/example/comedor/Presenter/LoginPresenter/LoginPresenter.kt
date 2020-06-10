@@ -26,9 +26,8 @@ class LoginPresenter(
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
 
-                       //check typeUser
                         check()
-//                        adminView()
+
                     }else{
                         Log.d(TAG,"signInWithEmail:Failure",task.exception)
                         Toast.makeText(mContext,"Error en la autenticacion",
