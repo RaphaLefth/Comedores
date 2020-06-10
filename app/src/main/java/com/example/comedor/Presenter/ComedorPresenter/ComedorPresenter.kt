@@ -1,4 +1,4 @@
-package com.example.comedor.Presenter.PrincipalPresenter
+package com.example.comedor.Presenter.ComedorPresenter
 
 import com.example.comedor.Models.User
 import android.content.Context
@@ -9,9 +9,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 
-class PrincipalPresenter(private var mAuth: FirebaseAuth,
-                         private var mDatabase: DatabaseReference,
-                         private var context: Context) {
+class ComedorPresenter(private var mAuth: FirebaseAuth,
+                       private var mDatabase: DatabaseReference,
+                       private var context: Context) {
     fun welcomeMsg(){
         mDatabase.child("User").child(mAuth.currentUser!!.uid)
             .addListenerForSingleValueEvent(object : ValueEventListener{

@@ -26,9 +26,8 @@ class LoginPresenter(
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
 
-                       //check typeUser
                         check()
-//                        adminView()
+
                     }else{
                         Log.d(TAG,"signInWithEmail:Failure",task.exception)
                         Toast.makeText(mContext,"Error en la autenticacion",
@@ -47,7 +46,7 @@ class LoginPresenter(
 
                  override fun onDataChange(p0: DataSnapshot) {
                      var user = p0.getValue(User::class.java)
-                     when(user!!.type){
+                     when(user!!.typeUser){
                          "1" -> adminView()
                          "2" -> comedorView()
                          "3" -> reporterView()

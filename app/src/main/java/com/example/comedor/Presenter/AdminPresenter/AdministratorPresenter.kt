@@ -1,14 +1,14 @@
-package com.example.comedor.Presenter.MainPresenter
+package com.example.comedor.Presenter.AdminPresenter
 
 import android.content.Context
 import android.widget.Toast
-import com.example.comedor.Models.UserModel
+import com.example.comedor.Models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class PrincipalPresenter(private var context: Context,
-                         private var mDatabase : DatabaseReference,
-                         private var mAuth:FirebaseAuth) {
+class AdministratorPresenter(private var context: Context,
+                             private var mDatabase : DatabaseReference,
+                             private var mAuth:FirebaseAuth) {
 
     fun welcomeMsg(){
         mDatabase.child("User").child(mAuth!!.currentUser!!.uid
@@ -18,9 +18,7 @@ class PrincipalPresenter(private var context: Context,
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var u : UserModel? = dataSnapshot.getValue(UserModel::class.java)
-//                var user : UserModel = dataSnapshot.value as UserModel
-//                +dataSnapshot.child("nombre")
+                var u : User? = dataSnapshot.getValue(User::class.java)
                 Toast.makeText(context,"Bienvenido "+u!!.nombre
                     , Toast.LENGTH_LONG).show()
 
