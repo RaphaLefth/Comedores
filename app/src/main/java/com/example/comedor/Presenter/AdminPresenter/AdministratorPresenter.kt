@@ -10,21 +10,21 @@ class AdministratorPresenter(private var context: Context,
                              private var mDatabase : DatabaseReference,
                              private var mAuth:FirebaseAuth) {
 
-    fun welcomeMsg(){
-        mDatabase.child("User").child(mAuth!!.currentUser!!.uid
-        ).addListenerForSingleValueEvent(object: ValueEventListener {
-            override fun onCancelled(dataSnapshot: DatabaseError) {
-
-            }
-
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var u : User? = dataSnapshot.getValue(User::class.java)
-                Toast.makeText(context,"Bienvenido "+u!!.nombre
-                    , Toast.LENGTH_LONG).show()
-
-            }
-
-        })
-    }
+//    fun welcomeMsg(){
+//        mDatabase.child("User").child(mAuth!!.currentUser!!.uid
+//        ).addListenerForSingleValueEvent(object: ValueEventListener {
+//            override fun onCancelled(dataSnapshot: DatabaseError) {
+//
+//            }
+//
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                var u : User? = dataSnapshot.getValue(User::class.java)
+//                Toast.makeText(context,"Bienvenido "+u!!.nombre
+//                    , Toast.LENGTH_LONG).show()
+//
+//            }
+//
+//        })
+//    }
 
 }
