@@ -4,7 +4,7 @@ data class User(var email : String ="",
             var lastName : String =""
                 , var nombre : String = ""
                 , var password : String = ""
-                ,var type : String = "") {
+                ,var typeUser : String = "") {
 
 
 

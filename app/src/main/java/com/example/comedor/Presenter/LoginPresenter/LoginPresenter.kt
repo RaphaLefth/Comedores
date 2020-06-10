@@ -47,12 +47,12 @@ class LoginPresenter(
 
                  override fun onDataChange(p0: DataSnapshot) {
                      var user = p0.getValue(User::class.java)
-                     when(user!!.type){
+                     when(user!!.typeUser){
                          "1" -> adminView()
                          "2" -> comedorView()
                          "3" -> reporterView()
                      }
-                     Toast.makeText(mContext,"Bienvenido "+ user!!.nombre,Toast.LENGTH_LONG).show()
+                     Toast.makeText(mContext,"Bienvenido "+ user!!.nombre+ "del tipo "+ user!!.typeUser,Toast.LENGTH_LONG).show()
                  }
 
              })

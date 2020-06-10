@@ -12,6 +12,7 @@ class ComedorActivity : AppCompatActivity() {
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mDatabase : DatabaseReference
     private lateinit var presenter : PrincipalPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comedor_screen)
@@ -20,4 +21,5 @@ class ComedorActivity : AppCompatActivity() {
         presenter = PrincipalPresenter(mAuth,mDatabase,this)
         presenter.welcomeMsg()
     }
+
 }
