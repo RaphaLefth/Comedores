@@ -14,4 +14,9 @@
     <string name="select_type">Tipo de cuenta:</string>
     <string name="seePersonal">Ver Personal</string>
     <string name="adminTitle">Administrador</string>
+    <string name="txvinfComedor">Este comedor brinda los servicios de:</string>
+    <string name="getBackbtn">Regresar</string>
+    <string name="cena">Cena</string>
+    <string name="almuerzo">Almuerzo</string>
+    <string name="desayuno">Desayuno</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.comedor
+package com.example.comedor.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.comedor.R
 
 class RecyclerAdapter( var mNumItem : Int) :
     RecyclerView.Adapter<RecyclerAdapter.numeroViewHolder>() {
@@ -22,13 +23,16 @@ class RecyclerAdapter( var mNumItem : Int) :
 
         //se crea el viewholder
         var context : Context = parent.context
-        var layoutIdParaListItem : Int = R.layout.grid_layout_list_item
+        var layoutIdParaListItem : Int =
+            R.layout.grid_layout_list_item
 
         var attachParentFast = false
         var layoutInflater = LayoutInflater.from(context)
             .inflate(layoutIdParaListItem,parent,attachParentFast)
 
-        return numeroViewHolder(layoutInflater)
+        return numeroViewHolder(
+            layoutInflater
+        )
 
 
     }

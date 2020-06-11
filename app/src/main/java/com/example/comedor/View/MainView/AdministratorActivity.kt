@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Presenter.ComedorPresenter.ComedorPresenter
 import com.example.comedor.R
-import com.example.comedor.RecyclerAdapter
+import com.example.comedor.Adapters.RecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
