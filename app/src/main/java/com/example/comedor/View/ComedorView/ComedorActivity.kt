@@ -1,8 +1,9 @@
-package com.example.comedor.View.MainView
+package com.example.comedor.View.ComedorView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,15 +24,18 @@ class ComedorActivity : AppCompatActivity() {
     private lateinit var arrayList: ArrayList<ItemBtnComedor>
     private lateinit var comedorAdapters: ComedorAdapters
     private lateinit var grid : GridLayout
+    private lateinit var welcomeText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comedor_screen)
-
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().reference
         presenter = ComedorPresenter(mAuth,mDatabase,this)
-        presenter.welcomeMsg()
+
+
+        welcomeText = findViewById(R.id.txtWelcomeComedor)
+        presenter.welcomeMsg(welcomeText)
 
         recyclerView = findViewById(R.id.my_recyclerV)
         gridLayoutManager = GridLayoutManager(applicationContext,

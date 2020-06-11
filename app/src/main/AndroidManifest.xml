@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/splash1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.ComedorView.ComedorInfoView"></activity>
+        <activity android:name=".View.ComedorView.AddConsumoView"></activity>
+        <activity android:name=".View.ComedorView.ServiceActivity" />
+        <activity android:name=".View.ComedorView.ComedorInfoView" />
         <activity android:name=".View.ComedorView.ServicesInfoView" />
-        <activity android:name=".View.MainView.ComedorActivity" />
+        <activity android:name=".View.ComedorView.ComedorActivity" />
         <activity android:name=".View.MainView.AdministratorActivity" />
         <activity android:name=".View.RecoverView.ForgotPassActivity" />
         <activity android:name=".View.MainView.ReporterActivity" />

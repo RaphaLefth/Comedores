@@ -3,10 +3,9 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import androidx.core.content.contentValuesOf
 import com.example.comedor.Models.User
 import com.example.comedor.View.MainView.AdministratorActivity
-import com.example.comedor.View.MainView.ComedorActivity
+import com.example.comedor.View.ComedorView.ComedorActivity
 import com.example.comedor.View.MainView.ReporterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -67,7 +66,8 @@ class LoginPresenter(
      }
 
     private fun comedorView() {
-        mContext.startActivity(Intent(mContext,ComedorActivity::class.java))
+        mContext.startActivity(Intent(mContext,
+            ComedorActivity::class.java))
     }
 
     private fun reporterView() {

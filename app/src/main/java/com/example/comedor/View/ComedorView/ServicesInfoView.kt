@@ -1,13 +1,11 @@
 package com.example.comedor.View.ComedorView
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.example.comedor.R
-import com.example.comedor.View.MainView.ComedorActivity
 import kotlinx.android.synthetic.main.activity_services_comedor_info_view.*
 
 class ServicesInfoView : AppCompatActivity() , View.OnClickListener{

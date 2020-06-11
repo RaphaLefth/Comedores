@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Models.ItemBtnComedor
 import com.example.comedor.R
+import com.example.comedor.View.ComedorView.AddConsumoView
+import com.example.comedor.View.ComedorView.AddedConsumo
 import com.example.comedor.View.ComedorView.ComedorInfoView
 import com.example.comedor.View.ComedorView.ServicesInfoView
 import com.example.comedor.View.RecoverView.ForgotPassActivity
@@ -39,7 +41,7 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
         holder.titles.text = itemBtnComedor.alpha
 
         holder.titles.setOnClickListener {
-      //     iconBtn(it)
+
             iconBtn(position)
             Toast.makeText(context, "apretaste $position",Toast.LENGTH_LONG).show()
         }
@@ -60,7 +62,7 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
     }
 
     private fun addConsume() {
-
+        context.startActivity(Intent(context,AddConsumoView::class.java))
     }
 
     private fun checkServices() {
@@ -76,7 +78,7 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
     }
 
     private fun checkPersonal() {
-        context.startActivity(Intent(context,ForgotPassActivity::class.java))
+       // context.startActivity(Intent(context,ForgotPassActivity::class.java))
     }
 
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

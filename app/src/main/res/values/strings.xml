@@ -19,4 +19,12 @@
     <string name="cena">Cena</string>
     <string name="almuerzo">Almuerzo</string>
     <string name="desayuno">Desayuno</string>
+    <string name="titleAddService">Registrar Nuevo Servicio</string>
+    <string name="servicio">Servicio</string>
+    <string name="dni">DNI</string>
+    <string name="inputDNI">Ingrese su número de DNI</string>
+    <string name="registrar">Registrar</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Bienvenido:</string>
 </resources>
