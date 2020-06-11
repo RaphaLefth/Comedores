@@ -75,7 +75,12 @@ if(isset($_GET['apicall'])){
 		}
 			break;
 
-		
+		case 'readempleados':
+		$db = new ControllerJson();
+		$response['error'] = false;
+		$response['message'] = 'solicitud completada correctamente';
+		$response['contenido'] = $db->readEmpleadoController();
+		break;
 
 	}
 
