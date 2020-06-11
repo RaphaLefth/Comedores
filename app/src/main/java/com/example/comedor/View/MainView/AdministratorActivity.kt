@@ -13,11 +13,13 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class AdministratorActivity : AppCompatActivity() {
+
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mDatabase : DatabaseReference
     private lateinit var presenter : ComedorPresenter
     private lateinit var rvtest : RecyclerView
     private lateinit var adapter: RecyclerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_screen)
@@ -26,7 +28,7 @@ class AdministratorActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference
         presenter = ComedorPresenter(mAuth,mDatabase,this)
         rvtest.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-
+        supportActionBar!!.title = "Prueba"
         var linearLayoutManager = LinearLayoutManager(this)
 
         rvtest.layoutManager = linearLayoutManager

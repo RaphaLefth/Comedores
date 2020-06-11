@@ -3,6 +3,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.contentValuesOf
 import com.example.comedor.Models.User
 import com.example.comedor.View.MainView.AdministratorActivity
 import com.example.comedor.View.MainView.ComedorActivity
@@ -20,20 +21,23 @@ class LoginPresenter(
      private var TAG : String = ""
 
      fun signInUser(email: String,password: String){
-            mAuth.signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener(){
-                    task ->
-                    if(task.isSuccessful){
-                        Log.d(TAG,"signInWithEmail:Success")
-                        //check typeUser
-                        check()
 
-                    }else{
-                        Log.d(TAG,"signInWithEmail:Failure",task.exception)
-                        Toast.makeText(mContext,"Error en la autenticacion",
-                            Toast.LENGTH_LONG).show()
+//            var u = mDatabase.child("User").child(mAuth.currentUser!!.uid)
+//            if(u!=null){
+                mAuth.signInWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(){
+                            task ->
+                        if(task.isSuccessful){
+                            Log.d(TAG,"signInWithEmail:Success")
+                            //check typeUser
+                            check()
+
+                        }else{
+                            Log.d(TAG,"signInWithEmail:Failure",task.exception)
+                            Toast.makeText(mContext,"No existe este usuario",
+                                Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
 
     }
 
@@ -41,18 +45,23 @@ class LoginPresenter(
          mDatabase.child("User").child(mAuth.currentUser!!.uid)
              .addListenerForSingleValueEvent(object : ValueEventListener {
                  override fun onCancelled(p0: DatabaseError) {
-
+                    Toast.makeText(mContext,"Este es del Oncancelled",Toast.LENGTH_LONG).show()
                  }
 
                  override fun onDataChange(p0: DataSnapshot) {
-                     var user = p0.getValue(User::class.java)
-                     when(user!!.typeUser){
-                         "1" -> adminView()
-                         "2" -> comedorView()
-                         "3" -> reporterView()
+                     if(p0.exists()){
+                         var user = p0.getValue(User::class.java)
+                         when(user!!.typeUser){
+                             "1" -> adminView()
+                             "2" -> comedorView()
+                             "3" -> reporterView()
+                         }
+                         Toast.makeText(mContext,"Bienvenido "+ user!!.nombre+ "del tipo "+ user!!.typeUser,Toast.LENGTH_LONG).show()
+
+                     }else{
+                         Toast.makeText(mContext,"NO EXISTE LA BD",Toast.LENGTH_LONG).show()
                      }
-                     Toast.makeText(mContext,"Bienvenido "+ user!!.nombre+ "del tipo "+ user!!.typeUser,Toast.LENGTH_LONG).show()
-                 }
+                    }
 
              })
      }

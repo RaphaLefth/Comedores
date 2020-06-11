@@ -71,7 +71,9 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
         }
         if(!TextUtils.isEmpty(nameUser) && !TextUtils.isEmpty(email) &&!TextUtils.isEmpty(nameUser)
             && !TextUtils.isEmpty(typeUser)){
+
             presenter.signUpUser(nameUser,lastNameUser,email,password,typeUser)
+
         }else{
             txtName.error = "Required"
             txtEmail.error = "Required"

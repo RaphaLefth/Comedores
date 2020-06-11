@@ -22,7 +22,7 @@ class RecyclerAdapter( var mNumItem : Int) :
 
         //se crea el viewholder
         var context : Context = parent.context
-        var layoutIdParaListItem : Int = R.layout.list_test_row
+        var layoutIdParaListItem : Int = R.layout.grid_layout_list_item
 
         var attachParentFast = false
         var layoutInflater = LayoutInflater.from(context)

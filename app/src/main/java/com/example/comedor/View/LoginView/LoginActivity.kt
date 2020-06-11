@@ -63,6 +63,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
         val user : String = txtUser.text.toString().trim()
         val password : String = txtPassword.text.toString().trim()
+
         if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
                 progressbar.visibility = View.VISIBLE
                 presenter.signInUser(user,password)

@@ -16,7 +16,17 @@ class RegisterPresenter(private var context: Context,
                         private var auth: FirebaseAuth,private var database: DatabaseReference) {
     private var TAG : String = "RegisterPresenter"
 
+    private lateinit var tU : String
+
  fun signUpUser(name:String, lastName: String, email: String, password: String, typeUser : String) {
+
+
+     when(typeUser){
+         "Administrador"-> tU = "1"
+             "Comedor" -> tU = "2"
+         "Reporte" -> tU = "3"
+     }
+
      auth.createUserWithEmailAndPassword(email,password)
          .addOnCompleteListener(){
                  task ->
@@ -26,13 +36,13 @@ class RegisterPresenter(private var context: Context,
                  map["lastname"] = lastName
                  map["email"]=email
                  map["password"]=password
-                 map["typeUser"] = typeUser
+                 map["typeUser"] = tU
 
                  database.child("User").child(task.result!!.user!!.uid)
                      .updateChildren(map)
                  action()
              }else{
-                 Toast.makeText(context,"Authentication failed",Toast.LENGTH_LONG).show()
+                 Toast.makeText(context,"Este email ya esta registrado",Toast.LENGTH_LONG).show()
              }
          }
  }
@@ -42,6 +52,6 @@ class RegisterPresenter(private var context: Context,
     }
 
     private fun verifyEmail(user: FirebaseUser?) {
-
+        //nada :v
     }
 }

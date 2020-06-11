@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="types">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>Administrador</item>
+        <item>Comedor</item>
+        <item>Reporte</item>
     </string-array>
 </resources>
