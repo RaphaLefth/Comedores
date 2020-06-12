@@ -47,6 +47,7 @@ class AdministratorActivity : AppCompatActivity() {
         val url="http://192.168.1.38/API-PHP/Api.php?apicall=readempleados"
 
         AsyncTaskHandleJson().execute(url)
+
         var linearLayoutManager = LinearLayoutManager(this)
 
 //        rvtest.layoutManager = linearLayoutManager
@@ -87,7 +88,6 @@ class AdministratorActivity : AppCompatActivity() {
             var x = 0
             while (x< jsonArray.length()){
                 Log.i("tagconvertstr", "[$x]");
-                var df : DateFormat
                 val jsonObject = jsonArray.getJSONObject(x)
                 list.add(
                     Employees(
