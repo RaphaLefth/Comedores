@@ -1,18 +1,27 @@
 package com.example.comedor.View.MainView
 
+import android.os.AsyncTask
+import android.os.AsyncTask.execute
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.comedor.Adapters.EmployeeAdapter
 import com.example.comedor.Presenter.ComedorPresenter.ComedorPresenter
 import com.example.comedor.R
 import com.example.comedor.Adapters.RecyclerAdapter
+import com.example.comedor.Api.Api
+import com.example.comedor.Models.Employees
 import com.example.comedor.Presenter.AdminPresenter.AdministratorPresenter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_admin_screen.*
+import org.json.JSONArray
+import java.net.HttpURLConnection
+import java.net.URL
 
 class AdministratorActivity : AppCompatActivity() {
 
@@ -32,6 +41,9 @@ class AdministratorActivity : AppCompatActivity() {
         presenter = AdministratorPresenter(this,mDatabase,mAuth)
         rvtest.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         supportActionBar!!.title = "Administrador"
+        val url="http://192.168.1.38/API-PHP/Api.php?apicall=readempleados"
+
+        AsyncTaskHandleJson().execute(url)
         var linearLayoutManager = LinearLayoutManager(this)
 
         rvtest.layoutManager = linearLayoutManager
@@ -45,4 +57,53 @@ class AdministratorActivity : AppCompatActivity() {
     companion object {
         private const val LISTA : Int = 100
     }
+
+    inner class AsyncTaskHandleJson: AsyncTask<String,String,String>(){
+
+        override fun doInBackground(vararg url: String?): String {
+            var text : String
+            val connection =URL(url[0]).openConnection() as HttpURLConnection
+            try {
+                connection.connect()
+                text = connection.inputStream.use { it.reader().use{
+                        reader -> reader.readText()
+                } }
+            }finally {
+                connection.disconnect()
+            }
+            return text
+        }
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            handleJson(result)
+        }
+
+        private fun handleJson(jsonString: String?) {
+            val jsonArray = JSONArray(jsonString)
+            val list = ArrayList<Employees>()
+            var x = 0
+            while (x< jsonArray.length()){
+                val jsonObject = jsonArray.getJSONObject(x)
+                list.add(
+                    Employees(
+                        jsonObject.getInt("id_empleado"),
+                        jsonObject.getString("dni"),
+                        jsonObject.getString("nombre"),
+                        jsonObject.getString("apellido"),
+                        jsonObject.getString("categoria"),
+                        jsonObject.getInt("id_empresa"),
+                        jsonObject.getInt("estado"),
+                        jsonObject.getString("fecha_ingreso"),
+                        jsonObject.getString("fecha_cese")
+                    )
+                )
+                x++
+            }
+            val adapter = EmployeeAdapter(this@AdministratorActivity,list)
+            employees_list.adapter = adapter
+        }
+
+    }
 }
+
+
