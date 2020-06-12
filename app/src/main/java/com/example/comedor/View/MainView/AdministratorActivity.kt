@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import android.os.AsyncTask.execute
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,8 @@ import kotlinx.android.synthetic.main.activity_admin_screen.*
 import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 class AdministratorActivity : AppCompatActivity() {
 
@@ -35,21 +38,21 @@ class AdministratorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_screen)
-        rvtest = findViewById(R.id.rvtest)
+       // rvtest = findViewById(R.id.rvtest)
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().reference
         presenter = AdministratorPresenter(this,mDatabase,mAuth)
-        rvtest.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+//        rvtest.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         supportActionBar!!.title = "Administrador"
         val url="http://192.168.1.38/API-PHP/Api.php?apicall=readempleados"
 
         AsyncTaskHandleJson().execute(url)
         var linearLayoutManager = LinearLayoutManager(this)
 
-        rvtest.layoutManager = linearLayoutManager
-
-        adapter = RecyclerAdapter(LISTA)
-        rvtest.adapter = adapter
+//        rvtest.layoutManager = linearLayoutManager
+//
+//        adapter = RecyclerAdapter(LISTA)
+//        rvtest.adapter = adapter
         txtWelcome = findViewById(R.id.txtWelcomeAdmin)
         presenter.welcomeMsg(txtWelcome)
     }
@@ -83,6 +86,8 @@ class AdministratorActivity : AppCompatActivity() {
             val list = ArrayList<Employees>()
             var x = 0
             while (x< jsonArray.length()){
+                Log.i("tagconvertstr", "[$x]");
+                var df : DateFormat
                 val jsonObject = jsonArray.getJSONObject(x)
                 list.add(
                     Employees(
@@ -92,9 +97,7 @@ class AdministratorActivity : AppCompatActivity() {
                         jsonObject.getString("apellido"),
                         jsonObject.getString("categoria"),
                         jsonObject.getInt("id_empresa"),
-                        jsonObject.getInt("estado"),
-                        jsonObject.getString("fecha_ingreso"),
-                        jsonObject.getString("fecha_cese")
+                        jsonObject.getInt("estado")
                     )
                 )
                 x++

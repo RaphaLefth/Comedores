@@ -28,13 +28,14 @@
     <ListView
         android:id="@+id/employees_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvtest"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txtListTitle" />
+        tools:ignore="MissingConstraints" />
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rvtest"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtListTitle" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

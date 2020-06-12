@@ -21,8 +21,8 @@ val list : List<Employees>) :BaseAdapter(){
         val employeeCategory = view.findViewById(R.id.employeeCategory) as AppCompatTextView
         val employeeIdEmpresa = view.findViewById(R.id.employeeIdEmpresa) as AppCompatTextView
         val employeeStatus = view.findViewById(R.id.employeeStatus) as AppCompatTextView
-        val employeeDateAdmission = view.findViewById(R.id.employeeDateAdmission) as AppCompatTextView
-        val employeeDateSus = view.findViewById(R.id.employeeDateSus) as AppCompatTextView
+    //    val employeeDateAdmission = view.findViewById(R.id.employeeDateAdmission) as AppCompatTextView
+      //  val employeeDateSus = view.findViewById(R.id.employeeDateSus) as AppCompatTextView
 
         employeeId.text = list[position].id.toString()
         employeeDni.text = list[position].dni.toString()
@@ -31,8 +31,8 @@ val list : List<Employees>) :BaseAdapter(){
         employeeCategory.text = list[position].categoria.toString()
         employeeIdEmpresa.text = list[position].id_empresa.toString()
         employeeStatus.text = list[position].estado.toString()
-        employeeDateAdmission.text = list[position].fecha_ingreso.toString()
-        employeeDateSus.text = list[position].fecha_cese.toString()
+      //  employeeDateAdmission.text = list[position].fecha_ingreso.toString()
+        //employeeDateSus.text = list[position].fecha_cese.toString()
         return view
     }
 
