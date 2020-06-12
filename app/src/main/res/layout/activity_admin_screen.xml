@@ -15,13 +15,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/txtListTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+    android:text="Lista de empleados actuales"
+        app:layout_constraintTop_toBottomOf="@+id/txtWelcomeAdmin"/>
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvtest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/txtWelcomeAdmin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtListTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
