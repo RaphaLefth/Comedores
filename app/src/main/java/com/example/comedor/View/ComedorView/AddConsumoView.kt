@@ -1,15 +1,12 @@
-package com.example.comedor.View.LoginView.MainView
+package com.example.comedor.View.ComedorView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.comedor.R
 
-class MainActivity : AppCompatActivity() {
-
+class AddConsumoView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-//		Thread.sleep(3500)
-//        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_add_consumo_view)
     }
 }

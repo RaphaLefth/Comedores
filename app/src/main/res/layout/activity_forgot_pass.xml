@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ForgotPassActivity"
+    tools:context=".View.RecoverView.ForgotPassActivity"
     android:orientation="vertical">
 
     <ProgressBar
@@ -21,14 +21,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="@string/forgottext" />
         android:hint="@string/forgottext" />
 
     <Button
-        android:onClick="send"
-        android:id="@+id/send"
+
+        android:id="@+id/btnRecover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sendPass"
         android:textColor="@android:color/white"
         android:background="@color/colorPrimary"/>
+<!--    android:onClick="recover"-->
 </LinearLayout>
