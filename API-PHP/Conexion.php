@@ -2,12 +2,12 @@
 class Conexion
 {
 	
-	public function conectar(){
+	public static function conectar(){
 
-		$localhost = "localhost";
+		$localhost = "127.0.0.1";
 		$database = "comedores";
 		$user = "root";
-		$password = "";
+		$password = "angel";
 
 		$link = new PDO("mysql:host=$localhost;dbname=$database",$user,$password);
 

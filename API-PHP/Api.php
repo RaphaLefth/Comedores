@@ -64,22 +64,22 @@ if(isset($_GET['apicall'])){
 		if($result){
 
 			//esto significa que no hay ningun error
-			$response['error'] = false;
+			//$response['error'] = false;
 			//mensaje que se ejecuto correctamente
-			$response['message'] = 'empleado agregado correctamente';
+			//$response['message'] = 'empleado agregado correctamente';
 
 			$response['contenido'] = $db->readEmpleadoController();
 		}else{
-			$response['error'] = true;
-			$response['message'] = 'ocurrio un error, intenta nuevamente';
+			//$response['error'] = true;
+			//$response['message'] = 'ocurrio un error, intenta nuevamente';
 		}
 			break;
 
 		case 'readempleados':
 		$db = new ControllerJson();
-		$response['error'] = false;
-		$response['message'] = 'solicitud completada correctamente';
-		$response['contenido'] = $db->readEmpleadoController();
+		//$response['error'] = false;
+		//$response['message'] = 'solicitud completada correctamente';
+		$response = $db->readEmpleadoController();
 		break;
 
 	}
@@ -87,8 +87,8 @@ if(isset($_GET['apicall'])){
 }else{
 	//si no es un api el que se esta invocando
 	//empujar los valores apropiados en la estructura json
-	$response['error'] = true;
-	$response['message'] = 'Invalid API Call';
+	//$response['error'] = true;
+	//$response['message'] = 'Invalid API Call';
 }
 
 echo json_encode($response);

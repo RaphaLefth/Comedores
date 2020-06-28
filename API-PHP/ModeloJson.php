@@ -12,7 +12,7 @@ class Datos extends Conexion
 	#USUARIOS
 	//----------------------------------------------------------------------------------
 
-	public function createEmpleadoModel($datosModel, $tabla){
+	public static function createEmpleadoModel($datosModel, $tabla){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (id_empleado,dni, nombre, apellido, categoria,id_empresa,estado,fecha_ingreso,fecha_cese) VALUES (:id_empleado, :dni, :nombre, :apellido, :categoria,:id_empresa,:estado,:fecha_ingreso,:fecha_cese)");
 
@@ -37,7 +37,7 @@ class Datos extends Conexion
 		}
 	}
 
-	public function readEmpleadoModel($tabla){
+	public static function readEmpleadoModel($tabla){
 
 		$stmt = Conexion::conectar()->prepare("SELECT id_empleado,dni, nombre, apellido, categoria, id_empresa,estado FROM $tabla");
 		$stmt->execute();
@@ -66,7 +66,7 @@ class Datos extends Conexion
 
 			array_push($usuarios, $user);
 		}
-
+		 
 		return $usuarios;
 	}
 
