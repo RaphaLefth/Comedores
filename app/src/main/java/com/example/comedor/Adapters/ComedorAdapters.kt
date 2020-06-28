@@ -56,27 +56,34 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
         }
     }
 
+    //checked
     private fun addConsume() {
-        val intent = Intent(context,AddConsumoView::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
-        //context.startActivity(Intent(context,AddConsumoView::class.java))
+        context.startActivity(Intent(context,AddConsumoView::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
+    //checked
     private fun checkServices() {
-        context.startActivity(Intent(context,ServicesInfoView::class.java))
+        val intent = Intent(context,ServicesInfoView::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
     }
 
+    //checked
     private fun seeReports() {
-        context.startActivity(Intent(context,RegistrarActivity::class.java))
+        context.startActivity(Intent(context,ComedorCheckReports::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
+    //checked
     private fun checkComedor() {
-        context.startActivity(Intent(context,ComedorInfoView::class.java))
+        context.startActivity(Intent(context,ComedorInfoView::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
-
+    //checked
     private fun checkPersonal() {
-        context.startActivity(Intent(context, CheckPersonalView::class.java))
+        context.startActivity(Intent(context, CheckPersonalView::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
 

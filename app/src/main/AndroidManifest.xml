@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".View.ComedorView.CheckPersonalView"></activity>
+        <activity android:name=".View.ComedorView.ComedorCheckReports"></activity>
+        <activity android:name=".View.ComedorView.CheckPersonalView" />
         <activity android:name=".View.ComedorView.AddConsumoView" />
         <activity android:name=".View.ComedorView.ServiceActivity" />
         <activity android:name=".View.ComedorView.ComedorInfoView" />

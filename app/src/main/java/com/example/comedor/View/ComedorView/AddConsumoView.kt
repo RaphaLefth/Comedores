@@ -8,5 +8,6 @@ class AddConsumoView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_consumo_view)
+        supportActionBar!!.title = "Registrar Consumo"
     }
 }

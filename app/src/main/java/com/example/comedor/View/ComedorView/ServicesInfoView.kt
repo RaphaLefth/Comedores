@@ -15,6 +15,7 @@ class ServicesInfoView : AppCompatActivity() , View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_services_comedor_info_view)
+        supportActionBar!!.title = "Ver Servicios"
         btnBack = findViewById(R.id.btnReturn)
         btnBack.setOnClickListener(this)
     }
