@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="32sp"
-                android:text="Dueño" />
+                android:text="@string/location" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Telefono"
+                android:text="@string/status"
                 android:textSize="32sp"/>
 
             <TextView

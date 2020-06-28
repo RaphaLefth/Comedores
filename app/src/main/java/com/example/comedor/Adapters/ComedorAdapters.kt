@@ -8,15 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Models.ItemBtnComedor
 import com.example.comedor.R
-import com.example.comedor.View.ComedorView.AddConsumoView
-import com.example.comedor.View.ComedorView.AddedConsumo
-import com.example.comedor.View.ComedorView.ComedorInfoView
-import com.example.comedor.View.ComedorView.ServicesInfoView
-import com.example.comedor.View.RecoverView.ForgotPassActivity
+import com.example.comedor.View.ComedorView.*
 import com.example.comedor.View.RegisterView.RegistrarActivity
 
 class ComedorAdapters(var context: Context, var arrayList: ArrayList<ItemBtnComedor>) :
@@ -78,13 +73,14 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
     }
 
     private fun checkPersonal() {
-       // context.startActivity(Intent(context,ForgotPassActivity::class.java))
+        context.startActivity(Intent(context, CheckPersonalView::class.java))
     }
+
 
     class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)
-        var titles = itemView.findViewById<TextView>(R.id.title_text_view)
+        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)!!
+        var titles = itemView.findViewById<TextView>(R.id.title_text_view)!!
 
     }
 }

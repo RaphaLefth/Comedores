@@ -1,9 +1,8 @@
-package com.example.comedor.View.MainView
+package com.example.comedor.View.AdministratorView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.example.comedor.Presenter.ComedorPresenter.ComedorPresenter
 import com.example.comedor.Presenter.ReporterPresenter.ReporterPresenter
 import com.example.comedor.R
 import com.google.firebase.auth.FirebaseAuth

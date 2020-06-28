@@ -2,9 +2,7 @@ package com.example.comedor.View.ComedorView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridLayout
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Adapters.ComedorAdapters
@@ -20,10 +18,9 @@ class ComedorActivity : AppCompatActivity() {
     private lateinit var mDatabase : DatabaseReference
     private lateinit var presenter : ComedorPresenter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var gridLayoutManager: LinearLayoutManager
+    private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var arrayList: ArrayList<ItemBtnComedor>
     private lateinit var comedorAdapters: ComedorAdapters
-    private lateinit var grid : GridLayout
     private lateinit var welcomeText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,26 +35,27 @@ class ComedorActivity : AppCompatActivity() {
         presenter.welcomeMsg(welcomeText)
 
         recyclerView = findViewById(R.id.my_recyclerV)
-        gridLayoutManager = GridLayoutManager(applicationContext,
-        2,LinearLayoutManager.VERTICAL,false)
-        recyclerView.layoutManager = gridLayoutManager
+        linearLayoutManager = LinearLayoutManager(applicationContext,LinearLayoutManager.VERTICAL,false)
+//        gridLayoutManager = GridLayoutManager(applicationContext,
+//        2,LinearLayoutManager.VERTICAL,false)
+        recyclerView.layoutManager = linearLayoutManager
         recyclerView.setHasFixedSize(true)
         arrayList = ArrayList()
         arrayList = setDataOnList()
-        comedorAdapters = ComedorAdapters(applicationContext,arrayList!!)
-        recyclerView?.adapter =comedorAdapters
+        comedorAdapters = ComedorAdapters(applicationContext, arrayList)
+        recyclerView.adapter =comedorAdapters
 
     }
 
     private fun setDataOnList() : ArrayList<ItemBtnComedor>{
-        var itemBtnComedors : ArrayList<ItemBtnComedor> = ArrayList()
-        itemBtnComedors.add(ItemBtnComedor(R.drawable.ic_personal_comedor_24,"Ver Personal"))
-        itemBtnComedors.add(ItemBtnComedor(R.drawable.ic_see_comedor_24,"Ver Comedor"))
-        itemBtnComedors.add(ItemBtnComedor(R.drawable.ic_report_info_24,"Reportes"))
+        val itemBtnComedores : ArrayList<ItemBtnComedor> = ArrayList()
+        itemBtnComedores.add(ItemBtnComedor(R.drawable.ic_personal_comedor_24,"Ver Personal"))
+        itemBtnComedores.add(ItemBtnComedor(R.drawable.ic_see_comedor_24,"Ver Comedor"))
+        itemBtnComedores.add(ItemBtnComedor(R.drawable.ic_report_info_24,"Reportes"))
 
-        itemBtnComedors.add(ItemBtnComedor(R.drawable.ic_services_comedor_24,"Ver Servicios"))
+        itemBtnComedores.add(ItemBtnComedor(R.drawable.ic_services_comedor_24,"Ver Servicios"))
 
-        itemBtnComedors.add(ItemBtnComedor(R.drawable.ic_add_consumo_24,"Registrar Consumo"))
-        return  itemBtnComedors
+        itemBtnComedores.add(ItemBtnComedor(R.drawable.ic_add_consumo_24,"Registrar Consumo"))
+        return  itemBtnComedores
     }
 }

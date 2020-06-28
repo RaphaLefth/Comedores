@@ -11,15 +11,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/splash1"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".View.ComedorView.AddConsumoView"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".View.ComedorView.CheckPersonalView"></activity>
+        <activity android:name=".View.ComedorView.AddConsumoView" />
         <activity android:name=".View.ComedorView.ServiceActivity" />
         <activity android:name=".View.ComedorView.ComedorInfoView" />
         <activity android:name=".View.ComedorView.ServicesInfoView" />
         <activity android:name=".View.ComedorView.ComedorActivity" />
-        <activity android:name=".View.MainView.AdministratorActivity" />
+        <activity android:name=".View.AdministratorView.AdministratorActivity" />
         <activity android:name=".View.RecoverView.ForgotPassActivity" />
-        <activity android:name=".View.MainView.ReporterActivity" />
+        <activity android:name=".View.AdministratorView.ReporterActivity" />
         <activity android:name=".View.RegisterView.RegistrarActivity" />
         <activity android:name=".View.LoginView.LoginActivity">
             <intent-filter>

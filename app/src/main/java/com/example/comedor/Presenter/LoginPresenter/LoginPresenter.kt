@@ -4,9 +4,9 @@ import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import com.example.comedor.Models.User
-import com.example.comedor.View.MainView.AdministratorActivity
+import com.example.comedor.View.AdministratorView.AdministratorActivity
 import com.example.comedor.View.ComedorView.ComedorActivity
-import com.example.comedor.View.MainView.ReporterActivity
+import com.example.comedor.View.AdministratorView.ReporterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
