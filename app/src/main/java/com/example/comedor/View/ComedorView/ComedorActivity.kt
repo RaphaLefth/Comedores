@@ -3,6 +3,7 @@ package com.example.comedor.View.ComedorView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Adapters.ComedorAdapters
@@ -18,7 +19,7 @@ class ComedorActivity : AppCompatActivity() {
     private lateinit var mDatabase : DatabaseReference
     private lateinit var presenter : ComedorPresenter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var gridLayoutManager: GridLayoutManager
     private lateinit var arrayList: ArrayList<ItemBtnComedor>
     private lateinit var comedorAdapters: ComedorAdapters
     private lateinit var welcomeText : TextView
@@ -35,10 +36,10 @@ class ComedorActivity : AppCompatActivity() {
         presenter.welcomeMsg(welcomeText)
 
         recyclerView = findViewById(R.id.my_recyclerV)
-        linearLayoutManager = LinearLayoutManager(applicationContext,LinearLayoutManager.VERTICAL,false)
-//        gridLayoutManager = GridLayoutManager(applicationContext,
-//        2,LinearLayoutManager.VERTICAL,false)
-        recyclerView.layoutManager = linearLayoutManager
+     //   linearLayoutManager = LinearLayoutManager(applicationContext,LinearLayoutManager.VERTICAL,false)
+        gridLayoutManager = GridLayoutManager(applicationContext,
+        2,LinearLayoutManager.VERTICAL,false)
+        recyclerView.layoutManager = gridLayoutManager
         recyclerView.setHasFixedSize(true)
         arrayList = ArrayList()
         arrayList = setDataOnList()

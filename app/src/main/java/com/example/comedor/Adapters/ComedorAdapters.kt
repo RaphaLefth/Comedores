@@ -57,7 +57,10 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
     }
 
     private fun addConsume() {
-        context.startActivity(Intent(context,AddConsumoView::class.java))
+        val intent = Intent(context,AddConsumoView::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+        //context.startActivity(Intent(context,AddConsumoView::class.java))
     }
 
     private fun checkServices() {
