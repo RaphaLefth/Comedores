@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context=".AddDataActivity">
+    tools:context=".View.AdministratorView.AdminAddComedorActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="5"

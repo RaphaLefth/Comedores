@@ -12,7 +12,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.comedor.EditeDataActivity
+import com.example.comedor.View.AdministratorView.AdminEditDataComedorActivity
 import com.example.comedor.Models.ComedorModelData
 import com.example.comedor.R
 import kotlinx.android.synthetic.main.admincomedorlayout.view.*
@@ -170,7 +170,7 @@ class AdminComedorAdapter(val context: Context, val comedorlistData: ArrayList<C
             //editar
             itemView.edite_data.setOnClickListener {
 
-                val i= Intent(context, EditeDataActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                val i= Intent(context, AdminEditDataComedorActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 val countryData = comedorlistData[currentPosition]
 
                 i.putExtra("getlistData",countryData)

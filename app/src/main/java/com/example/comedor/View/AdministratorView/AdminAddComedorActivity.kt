@@ -1,21 +1,20 @@
-package com.example.comedor
+package com.example.comedor.View.AdministratorView
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.comedor.R
 import kotlinx.android.synthetic.main.activity_add_data.*
 import kotlinx.android.synthetic.main.activity_add_data.closeActivity
 import kotlinx.android.synthetic.main.activity_add_data.submitdata
-import kotlinx.android.synthetic.main.activity_edite_data.*
 import org.json.JSONObject
 
-class AddDataActivity : AppCompatActivity() {
+class AdminAddComedorActivity : AppCompatActivity() {
 
     private lateinit var queue: RequestQueue
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +23,7 @@ class AddDataActivity : AppCompatActivity() {
         queue= Volley.newRequestQueue(this)
         submitdata.setOnClickListener {
             senData()
+            finish()
         }
         closeActivity.setOnClickListener {
         //    getback()

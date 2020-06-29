@@ -1,4 +1,4 @@
-package com.example.comedor
+package com.example.comedor.View.AdministratorView
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,12 +11,12 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.comedor.Models.ComedorModelData
-import com.example.comedor.View.AdministratorView.AdminComedor
+import com.example.comedor.R
 import kotlinx.android.synthetic.main.activity_edite_data.*
 import org.json.JSONObject
 
 
-class EditeDataActivity : AppCompatActivity() {
+class AdminEditDataComedorActivity : AppCompatActivity() {
 
     private lateinit var queue: RequestQueue
     private lateinit var g: Intent;

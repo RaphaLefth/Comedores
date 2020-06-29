@@ -13,8 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddDataActivity"></activity>
-        <activity android:name=".EditeDataActivity" />
+        <activity android:name=".View.AdministratorView.AdminAddComedorActivity"></activity>
+        <activity android:name=".View.AdministratorView.AdminEditDataComedorActivity" />
         <activity android:name=".View.AdministratorView.AdminPersonalInfo" />
         <activity android:name=".View.AdministratorView.AdminEmployess" />
         <activity android:name=".View.AdministratorView.AdminUsuarios" />

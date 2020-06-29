@@ -6,9 +6,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_gravity="center_vertical|center_horizontal"
-    tools:context=".View.ComedorView.AddedConsumo">
+    tools:context=".View.ComedorView.AddedConsumo"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,114 +19,157 @@
             android:id="@+id/layout_add1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/txtCurrentEmployee"
+
+
+                <Spinner
+                    android:id="@+id/spServicios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BIenvenido: "
-
-                    android:textAlignment="center"
-                    android:textSize="28sp"
-
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dialog"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/imageView5"/>
+                    />
 
+                <EditText
+                    android:id="@+id/etDNI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enterDNI"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@+id/spServicios"/>
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txtCurrentEmployee"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/bienvenido"-->
+
+<!--                    android:textAlignment="center"-->
+<!--                    android:textSize="28sp"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/spServicios"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/imageView5"/>-->
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/etDNI"
+                    android:textAllCaps="true"
+                    android:text="@string/total"
+                    android:textAlignment="center"/>
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTotal"
+                    />
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imgUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_person_outline_24"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCurrentEmployee"/>
+                    app:layout_constraintTop_toBottomOf="@+id/btnAdd"
+                    />
+
+                <EditText
+                    android:id="@+id/etUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    app:layout_constraintTop_toBottomOf="@+id/imgUser"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layout_add2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/layout_add1">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_add2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add1">-->
 
-            <TextView
-                android:id="@+id/txtPlacer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="24sp"
-                android:text="Disfrute de su"/>
+<!--            <TextView-->
+<!--                android:id="@+id/txtPlacer"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="24sp"-->
+<!--                android:text="Disfrute de su"/>-->
 
-            <TextView
-                android:id="@+id/txtCurrentService"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:text="Servicio" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/layout_add3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/layout_add2">
+<!--            <TextView-->
+<!--                android:id="@+id/txtCurrentService"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:text="Servicio" />-->
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="24sp"
-                android:text="Hora de registro"
-                android:textAlignment="center" />
+<!--        </LinearLayout>-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_add3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add2">-->
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hora de Registro"
-                android:textAlignment="center"
-                android:textSize="20sp"/>
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/textView15"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="24sp"-->
+<!--                android:text="Hora de registro"-->
+<!--                android:textAlignment="center" />-->
 
-        <LinearLayout
-            android:id="@+id/layout_add4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/layout_add3"
-            >
+<!--            <TextView-->
+<!--                android:id="@+id/textView16"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Hora de Registro"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="20sp"/>-->
+<!--        </LinearLayout>-->
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="24sp"
-                android:text="Fecha de registro"
-                android:textAlignment="center" />
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_add4"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add3"-->
+<!--            >-->
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Fecha de registro"
-                android:textSize="20sp"
-                android:textAlignment="center"/>
+<!--            <TextView-->
+<!--                android:id="@+id/textView11"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="24sp"-->
+<!--                android:text="Fecha de registro"-->
+<!--                android:textAlignment="center" />-->
 
-        </LinearLayout>
-        Registro
+<!--            <TextView-->
+<!--                android:id="@+id/textView12"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Fecha de registro"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textAlignment="center"/>-->
+
+<!--        </LinearLayout>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

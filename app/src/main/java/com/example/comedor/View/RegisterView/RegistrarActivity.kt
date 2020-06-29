@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
+import com.dev.materialspinner.MaterialSpinner
 import com.example.comedor.Presenter.RegisterPresenter.RegisterPresenter
 import com.example.comedor.R
 import com.example.comedor.View.LoginView.LoginActivity
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_registrar.view.*
 
 class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterView.OnItemSelectedListener{
 
@@ -21,7 +23,7 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
     private lateinit var txtlastName : EditText
     private lateinit var txtEmail : EditText
     private lateinit var txtPassword : EditText
-    private lateinit var spinner : Spinner
+    private lateinit var spinner : MaterialSpinner
     private lateinit var progressBar : ProgressBar
     private lateinit var dbReference : DatabaseReference
     private lateinit var database : FirebaseDatabase
@@ -40,11 +42,18 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
         txtPassword = findViewById(R.id.txtPassword)
         progressBar = findViewById(R.id.progressBar)
         btnRegister = findViewById(R.id.btnEnviar)
-        spinner = findViewById(R.id.spinner)
+        spinner = findViewById(R.id.material_spinner)
+        spinner.spinner.onItemSelectedListener = this
         if (spinner != null) {
-            val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, list)
-            spinner.adapter = adapter
+//            val adapter = ArrayAdapter(this,
+//                android.R.layout.simple_spinner_item, list)
+//            spinner.adapter = adapter
+
+
+            val aa = ArrayAdapter(this,android.R.layout.simple_spinner_item,list)
+            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.spinner.adapter = aa
+
         }
         btnRegister.setOnClickListener(this)
         FirebaseApp.initializeApp(this)
@@ -65,7 +74,7 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
         val lastNameUser : String = txtlastName.text.toString().trim()
         val email : String = txtEmail.text.toString().trim()
         val password : String = txtPassword.text.toString().trim()
-        val typeUser : String = spinner.selectedItem.toString()
+        val typeUser : String = spinner.getSpinner().selectedItem.toString()
         if(password.length < 6){
             txtPassword.error = "Debe tener al menos 6 caracteres"
         }
@@ -109,5 +118,7 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
         Toast.makeText(this@RegistrarActivity,getString(R.string.select_type)+" "+
                         list[p],Toast.LENGTH_LONG).show()
     }
+
+
 
 }

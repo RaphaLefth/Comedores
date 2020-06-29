@@ -54,31 +54,31 @@ RecyclerView.Adapter<ItemHolder>() {
         }
     }
 
-    //checked
+    //checked-2
     private fun addConsume() {
         context.startActivity(Intent(context,AddConsumoView::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
-    //checked
+    //checked-2
     private fun checkServices() {
         val intent = Intent(context,ServicesInfoView::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
 
-    //checked
+    //checked-2
     private fun seeReports() {
         context.startActivity(Intent(context,ComedorCheckReports::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
-    //checked
+    //checked-1.5
     private fun checkComedor() {
         context.startActivity(Intent(context,ComedorInfoView::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
-    //checked
+    //checked-2
     private fun checkPersonal() {
         context.startActivity(Intent(context, CheckPersonalView::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))

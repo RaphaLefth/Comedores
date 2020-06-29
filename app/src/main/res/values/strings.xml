@@ -39,5 +39,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="baseurl">http://bhssolution.com/data/api/kotlinapi/</string>
+    <string name="bienvenido">BIenvenido:</string>
+    <string name="enterDNI">Ingrese su DNI</string>
+    <string name="total">Total</string>
+    <string name="add">Agregar</string>
+    <string name="search">Buscar</string>
+    <string name="date">Seleccione una fecha</string>
+    <string name="details">Detalles</string>
 
 </resources>
