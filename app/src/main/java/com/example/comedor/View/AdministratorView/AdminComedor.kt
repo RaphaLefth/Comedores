@@ -37,7 +37,6 @@ class AdminComedor : AppCompatActivity() {
         setupRecyclerView()
         adddata.setOnClickListener {
             val i= Intent(this, AddDataActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             this.startActivity(i)
         }
     }

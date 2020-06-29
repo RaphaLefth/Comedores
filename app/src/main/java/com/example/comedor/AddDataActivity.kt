@@ -37,19 +37,15 @@ class AddDataActivity : AppCompatActivity() {
     }
 
     private fun senData(){
-        when {
-            ename.text.isEmpty() -> {
-                showToast("Enter Your Name")
-            }
-            eemail.text.isEmpty() -> {
-                showToast("Enter Your Email")
-            }
-            eaddress.text.isEmpty() -> {
-                showToast("Enter Your Address")
-            }
-            else -> {
-                saveData()
-            }
+        if
+                (name.text.length==0){
+            showToast("Enter Your Name")
+        }else if(email.text.length==0){
+            showToast("Enter Your Email")
+        }else if(address.text.length==0){
+            showToast("Enter Your Address")
+        }else{
+            saveData()
         }
     }
 
