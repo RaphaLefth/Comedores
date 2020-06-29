@@ -41,6 +41,7 @@ class AdministratorActivity : AppCompatActivity() {
         presenter = AdministratorPresenter(this,mDatabase,mAuth)
         supportActionBar!!.title = "Administrador"
 
+
         recyclerView = findViewById(R.id.rvMain)
         gridLayoutManager = GridLayoutManager(applicationContext,2,
             LinearLayoutManager.VERTICAL,false)

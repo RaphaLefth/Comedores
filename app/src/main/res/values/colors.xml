@@ -8,5 +8,11 @@
     <color name="colorPrimaryDark">#FF5722</color>
     <color name="colorAccent">#2196F3</color>
     <color name="colorSplash">#FFFFFF</color>
+    <color name="colorBorder">#d0ced0</color>
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="bgcolor">#F0F0F0</color>
+
 
 </resources>

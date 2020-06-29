@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     private lateinit var btnRegister : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        Thread.sleep(6000)
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_activty)
@@ -80,5 +79,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             R.id.txvNewUser -> register()
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        txtUser.text.clear()
+        txtPassword.text.clear()
+        progressbar.visibility = View.INVISIBLE
     }
 }

@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".View.AdministratorView.AdminPersonalInfo"></activity>
+        <activity android:name=".AddDataActivity"></activity>
+        <activity android:name=".EditeDataActivity" />
+        <activity android:name=".View.AdministratorView.AdminPersonalInfo" />
         <activity android:name=".View.AdministratorView.AdminEmployess" />
         <activity android:name=".View.AdministratorView.AdminUsuarios" />
         <activity android:name=".View.AdministratorView.AdminServicios" />
