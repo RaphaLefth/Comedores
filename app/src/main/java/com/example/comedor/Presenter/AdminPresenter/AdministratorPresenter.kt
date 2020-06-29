@@ -21,10 +21,10 @@ class AdministratorPresenter(private var context: Context,
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
-                    var user = p0.getValue(User::class.java)
+                    val user = p0.getValue(User::class.java)
                     Toast.makeText(context,"Bienvenido "+ user!!.nombre,Toast.LENGTH_LONG).show()
-                    var textView: TextView = view.findViewById(R.id.txtWelcomeAdmin) as TextView
-                    textView.text = " " +textView.text+ user!!.nombre.toString()
+//                    var textView: TextView = view.findViewById(R.id.txtWelcomeAdmin) as TextView
+//                    textView.text = " " +textView.text+ user!!.nombre.toString()
                 }
 
             })

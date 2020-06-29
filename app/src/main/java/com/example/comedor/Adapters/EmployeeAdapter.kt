@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.comedor.Models.Employees
-import com.example.comedor.Models.ItemBtnComedor
 import com.example.comedor.R
 
 class EmployeeAdapter(val context: Context,

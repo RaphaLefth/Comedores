@@ -8,10 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.comedor.Adapters.AdminAdapter
 import com.example.comedor.Adapters.EmployeeAdapter
 import com.example.comedor.R
 import com.example.comedor.Adapters.RecyclerAdapter
 import com.example.comedor.Models.Employees
+import com.example.comedor.Models.ItemBtnGeneric
 import com.example.comedor.Presenter.AdminPresenter.AdministratorPresenter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -25,11 +27,11 @@ class AdministratorActivity : AppCompatActivity() {
     private lateinit var mAuth : FirebaseAuth
     private lateinit var mDatabase : DatabaseReference
     private lateinit var presenter : AdministratorPresenter
-    private lateinit var rvtest : RecyclerView
-    private lateinit var adapter: RecyclerAdapter
-    private lateinit var txtWelcome : TextView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var gridLayoutManager: GridLayoutManager
+    private lateinit var arrayList: ArrayList<ItemBtnGeneric>
+    private lateinit var adminAdapter: AdminAdapter
 
-    private lateinit var gridLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,22 +39,41 @@ class AdministratorActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().reference
         presenter = AdministratorPresenter(this,mDatabase,mAuth)
-
         supportActionBar!!.title = "Administrador"
 
-        rvtest = findViewById(R.id.rvEmpleados)
-        gridLayoutManager = GridLayoutManager(applicationContext,1,LinearLayoutManager.VERTICAL,false)
-        rvtest.layoutManager = gridLayoutManager
-        rvtest.setHasFixedSize(false)
+        recyclerView = findViewById(R.id.rvMain)
+        gridLayoutManager = GridLayoutManager(applicationContext,2,
+            LinearLayoutManager.VERTICAL,false)
+        recyclerView.layoutManager = gridLayoutManager
+        recyclerView.setHasFixedSize(true)
+        arrayList = ArrayList()
+        arrayList = setDataOnList()
+        adminAdapter = AdminAdapter(applicationContext,arrayList)
+        recyclerView.adapter = adminAdapter
+
+
+/**        rvtest = findViewById(R.id.rvEmpleados)
+//        gridLayoutManager = GridLayoutManager(applicationContext,1,LinearLayoutManager.VERTICAL,false)
+//        rvtest.layoutManager = gridLayoutManager
+//        rvtest.setHasFixedSize(false)
 
         //api call
-        val url="http://192.168.1.37/API-PHP/Api.php?apicall=readempleados"
-        AsyncTaskHandleJson().execute(url)
+     //   val url="http://192.168.1.37/API-PHP/Api.php?apicall=readempleados"
+    //    AsyncTaskHandleJson().execute(url)
         //end call
-        txtWelcome = findViewById(R.id.txtWelcomeAdmin)
-        presenter.welcomeMsg(txtWelcome)
+//        txtWelcome = findViewById(R.id.txtWelcomeAdmin)
+       presenter.welcomeMsg(txtWelcome)**/
     }
 
+    private fun setDataOnList(): ArrayList<ItemBtnGeneric> {
+        val items : ArrayList<ItemBtnGeneric> = ArrayList()
+        items.add(ItemBtnGeneric(R.drawable.ic_admin_add_sucursal_24,"Comedor"))
+        items.add(ItemBtnGeneric(R.drawable.ic_admin_personal_24,"Empleados"))
+        items.add(ItemBtnGeneric(R.drawable.ic_admin_role_permission,"Gestionar Permisos"))//leer de fire y cambiar
+        items.add(ItemBtnGeneric(R.drawable.ic_services_comedor_24,"Servicios"))
+        return items
+    }
+/*
     inner class AsyncTaskHandleJson: AsyncTask<String,String,String>(){
 
         override fun doInBackground(vararg url: String?): String {
@@ -97,7 +118,7 @@ class AdministratorActivity : AppCompatActivity() {
             rvtest.adapter = adapter
         }
 
-    }
+    }*/
 }
 
 

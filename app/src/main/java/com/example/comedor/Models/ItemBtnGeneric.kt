@@ -1,6 +1,6 @@
 package com.example.comedor.Models
 
-class ItemBtnComedor {
+class ItemBtnGeneric {
     var icons:Int ? = 0
     var alpha:String ? = null
 

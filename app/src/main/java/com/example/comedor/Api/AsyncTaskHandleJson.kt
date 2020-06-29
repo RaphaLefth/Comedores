@@ -57,7 +57,7 @@ class AsyncTaskHandleJson(val context: Context, var view : View): AsyncTask<Stri
             x++
         }
         val adapter = EmployeeAdapter(context,list)
-        view.rvEmpleados.adapter = adapter
+       // view.rvEmpleados.adapter = adapter
 //        employees_list.adapter = adapter
     }
 

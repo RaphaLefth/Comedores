@@ -3,24 +3,21 @@ package com.example.comedor.Adapters
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.comedor.Models.ItemBtnComedor
+import com.example.comedor.Holders.ItemHolder
+import com.example.comedor.Models.ItemBtnGeneric
 import com.example.comedor.R
 import com.example.comedor.View.ComedorView.*
-import com.example.comedor.View.RegisterView.RegistrarActivity
 
-class ComedorAdapters(var context: Context, var arrayList: ArrayList<ItemBtnComedor>) :
-RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
+class ComedorAdapters(var context: Context, private var arrayList: ArrayList<ItemBtnGeneric>) :
+RecyclerView.Adapter<ItemHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         val viewHolder = LayoutInflater.from(parent.context)
-            .inflate(R.layout.grid_view_layout_items, parent, false)
+            .inflate(R.layout.grid_view_layout_comedor_items, parent, false)
         return ItemHolder(viewHolder)
     }
 
@@ -30,10 +27,11 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
 
-        val itemBtnComedor: ItemBtnComedor = arrayList[position]
+        val itemBtnGeneric: ItemBtnGeneric = arrayList[position]
 
-        holder.icons.setImageResource(itemBtnComedor.icons!!)
-        holder.titles.text = itemBtnComedor.alpha
+        holder.icons.setImageResource(itemBtnGeneric.icons!!)
+
+        holder.titles.text = itemBtnGeneric.alpha
 
         holder.titles.setOnClickListener {
 
@@ -86,11 +84,4 @@ RecyclerView.Adapter<ComedorAdapters.ItemHolder>() {
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     }
 
-
-    class ItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        var icons = itemView.findViewById<ImageView>(R.id.icon_image_view)!!
-        var titles = itemView.findViewById<TextView>(R.id.title_text_view)!!
-
-    }
 }

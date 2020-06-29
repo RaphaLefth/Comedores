@@ -15,6 +15,7 @@ import com.example.comedor.Models.Employees
 import com.google.gson.annotations.JsonAdapter
 import kotlinx.android.synthetic.main.activity_admin_screen.*
 import kotlinx.android.synthetic.main.activity_admin_screen.view.*
+import kotlinx.android.synthetic.main.activity_comedor_screen.view.*
 import org.json.JSONArray
 import org.json.JSONException
 import java.lang.reflect.Array
@@ -51,7 +52,7 @@ class Api(var context: Context, val view : View) {
               )
               x++
             val adapter = EmployeeAdapter(context,list)
-            view.rvEmpleados.adapter = adapter
+            view.my_recyclerV.adapter = adapter
         }
       }catch ( e : JSONException){
 

@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".View.ComedorView.ComedorCheckReports"></activity>
+        <activity android:name=".View.AdministratorView.AdminPersonalInfo"></activity>
+        <activity android:name=".View.AdministratorView.AdminEmployess" />
+        <activity android:name=".View.AdministratorView.AdminUsuarios" />
+        <activity android:name=".View.AdministratorView.AdminServicios" />
+        <activity android:name=".View.AdministratorView.AdminComedor" />
+        <activity android:name=".View.AdministratorView.rolPermissions" />
+        <activity android:name=".View.ComedorView.ComedorCheckReports" />
         <activity android:name=".View.ComedorView.CheckPersonalView" />
         <activity android:name=".View.ComedorView.AddConsumoView" />
         <activity android:name=".View.ComedorView.ServiceActivity" />
