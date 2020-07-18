@@ -13,6 +13,11 @@
     <color name="white">#FFF</color>
     <color name="black">#000</color>
     <color name="bgcolor">#F0F0F0</color>
+    <color name="primaryDark">#292b3d</color>
+    <color name="graylight">#fafafa</color>
+
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
 
 
 </resources>

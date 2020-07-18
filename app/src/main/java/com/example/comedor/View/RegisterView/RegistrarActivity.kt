@@ -1,5 +1,6 @@
 package com.example.comedor.View.RegisterView
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,8 +32,10 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
     private lateinit var btnRegister : Button
     private lateinit var presenter : RegisterPresenter
     private lateinit var list : Array<String>
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Thread.sleep(3000)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar)
         list =  resources.getStringArray(R.array.types)
@@ -101,6 +104,10 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
                 Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun setProgress(){
+
     }
 
     override fun onClick(p0: View?) {

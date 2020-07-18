@@ -20,9 +20,6 @@ class LoginPresenter(
      private var TAG : String = ""
 
      fun signInUser(email: String,password: String){
-
-//            var u = mDatabase.child("User").child(mAuth.currentUser!!.uid)
-//            if(u!=null){
                 mAuth.signInWithEmailAndPassword(email,password)
                     .addOnCompleteListener(){
                             task ->
@@ -49,13 +46,13 @@ class LoginPresenter(
 
                  override fun onDataChange(p0: DataSnapshot) {
                      if(p0.exists()){
-                         var user = p0.getValue(User::class.java)
+                         val user = p0.getValue(User::class.java)
                          when(user!!.typeUser){
                              "1" -> adminView()
                              "2" -> comedorView()
                              "3" -> reporterView()
                          }
-                         Toast.makeText(mContext,"Bienvenido "+ user!!.nombre+ "del tipo "+ user!!.typeUser,Toast.LENGTH_LONG).show()
+                         //Toast.makeText(mContext,"Bienvenido "+ user!!.nombre+ "del tipo "+ user!!.typeUser,Toast.LENGTH_LONG).show()
 
                      }else{
                          Toast.makeText(mContext,"NO EXISTE LA BD",Toast.LENGTH_LONG).show()

@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.RegisterView.RegistrarActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_gravity="center">
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:paddingTop="10dp">
     <EditText
         android:id="@+id/txtName"
         android:layout_width="match_parent"
@@ -70,20 +73,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
+        android:paddingLeft="10dp"
         android:id="@+id/txtTypeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_type"
         android:textSize = "20dp" />
-
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner"-->
-
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@android:drawable/btn_dropdown"-->
-<!--        android:spinnerMode="dialog"-->
-<!--        android:tooltipText="Seleccione"/>-->
 
     <com.dev.materialspinner.MaterialSpinner
         android:layout_width="match_parent"
@@ -108,12 +103,5 @@
         android:onClick="registerNewUser"
         android:text="@string/accountText"
         android:textColor="@android:color/widget_edittext_dark" />
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        />
+
 </LinearLayout>

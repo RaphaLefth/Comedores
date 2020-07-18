@@ -12,11 +12,12 @@
 
     <ProgressBar
         android:id="@+id/progressBar2"
-        style="@android:style/Widget.Material.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:indeterminate="true"/>
+        android:indeterminate="true"
+        style="?android:progressBarStyle"
+        android:progressDrawable="@drawable/circle_progress"/>
 
 
 
@@ -38,7 +39,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
 
 
@@ -54,7 +57,6 @@
 
     <Button
         android:id="@+id/button"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"

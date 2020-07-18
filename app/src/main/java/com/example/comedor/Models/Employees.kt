@@ -1,16 +1,15 @@
 package com.example.comedor.Models
 
-import java.util.*
+import java.io.Serializable
 
 data class Employees(
-    val id: Int,
-    val dni : String,
-    val nombre :String,
-    val apellido : String,
-    val categoria : String,
-    val id_empresa :Int,
-    val estado : Int
+    var dni : String?,
+    var nombre :String?,
+    var apellido : String?,
+    var id_categoria : Int?,
+    var ruc_empresa :String?,
+    var estado : Int?
 //    val fecha_ingreso : Date,
 //    val fecha_cese : Date
-) {
+) : Serializable {
 }

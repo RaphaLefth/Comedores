@@ -49,15 +49,8 @@ class AdminAdapter(var context: Context, private var arrayList: ArrayList<ItemBt
             1 -> personal()
             2 -> usuarios()
             3->  servicios()
-//            4 -> rolPermissions()
         }
     }
-
-//    private fun rolPermissions() {
-//        context.startActivity(Intent(context,rolPermissions::class.java)
-//            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-//
-//    }
 
     private fun servicios() {
         context.startActivity(Intent(context,AdminServicios::class.java)

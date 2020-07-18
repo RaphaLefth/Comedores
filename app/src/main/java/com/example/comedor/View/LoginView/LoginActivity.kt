@@ -1,7 +1,7 @@
 package com.example.comedor.View.LoginView
 
+import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -9,10 +9,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-import com.example.comedor.View.RecoverView.ForgotPassActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.comedor.Presenter.LoginPresenter.LoginPresenter
 import com.example.comedor.R
+import com.example.comedor.View.RecoverView.ForgotPassActivity
 import com.example.comedor.View.RegisterView.RegistrarActivity
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -28,6 +30,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     private lateinit var presenter : LoginPresenter
     private lateinit var btnLogin : Button
     private lateinit var btnRegister : TextView
+    private lateinit var btnRecover : TextView
+
+
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -36,16 +42,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         txtUser = findViewById(R.id.txtUserEmail)
         txtPassword = findViewById(R.id.txtUserPassword)
         btnLogin = findViewById(R.id.button)
+
         btnLogin.setOnClickListener(this)
 
         btnRegister = findViewById(R.id.txvNewUser)
         btnRegister.setOnClickListener(this)
 
+        btnRecover = findViewById(R.id.txvRecover)
+        btnRecover.setOnClickListener(this)
+
         progressbar = findViewById(R.id.progressBar2)
         auth = FirebaseAuth.getInstance()
         mDatabase = FirebaseDatabase.getInstance().reference
         presenter = LoginPresenter(this,auth,mDatabase)
-
+        progressDialog = ProgressDialog(this)
 
     }
 
@@ -59,17 +69,58 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
 
     private fun loginUser() {
-
         val user : String = txtUser.text.toString().trim()
         val password : String = txtPassword.text.toString().trim()
 
         if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
-                progressbar.visibility = View.VISIBLE
-                presenter.signInUser(user,password)
+            progressbar.visibility = View.VISIBLE
+            presenter.signInUser(user,password)
         }else{
             txtUser.error = "Required"
             txtPassword.error = "Required"
         }
+
+        /**
+        val user : String = txtUser.text.toString().trim()
+        val password : String = txtPassword.text.toString().trim()
+
+        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
+            progressDialog.max = 100
+            progressDialog.setMessage("Verificando...")
+            progressDialog.setTitle("Validando Datos")
+            progressDialog.show()
+            progressDialog.setCancelable(false)
+
+
+            Thread(Runnable {
+                try {
+                    if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
+                        while (progressDialog.progress <= progressDialog
+                                .max
+                        ){
+                            presenter.signInUser(user,password)
+                            progressDialog.dismiss()
+                        }
+                    }else{
+                        checkNull()
+                        progressDialog.dismiss()
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }).start()
+
+
+        }else{
+            checkNull()
+        }
+
+**/
+    }
+
+    private fun checkNull() {
+        txtUser.error = "Required"
+        txtPassword.error = "Required"
     }
 
     override fun onClick(p0: View?) {

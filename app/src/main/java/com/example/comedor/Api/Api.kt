@@ -30,39 +30,41 @@ class Api(var context: Context, val view : View) {
   private  val uri="http://192.168.1.37/API-PHP/Api.php?apicall=readempleados"
 
 
-  fun obteneData(){
-    var request = JsonObjectRequest(GET,uri,null, Response.Listener {
-            response ->
-      try {
-          var mJsonArray= response.getJSONArray("contenido")
-          val list = ArrayList<Employees>()
-          var x = 0
-          while(x<mJsonArray.length()){
-            val jsonObject = mJsonArray.getJSONObject(x)
-              list.add(
-                Employees(
-                  jsonObject.getInt("id_empleado"),
-                  jsonObject.getString("dni"),
-                  jsonObject.getString("nombre"),
-                  jsonObject.getString("apellido"),
-                  jsonObject.getString("categoria"),
-                  jsonObject.getInt("id_empresa"),
-                  jsonObject.getInt("estado")
-                )
-              )
-              x++
-            val adapter = EmployeeAdapter(context,list)
-            view.my_recyclerV.adapter = adapter
-        }
-      }catch ( e : JSONException){
 
-      }
-    },
-    Response.ErrorListener {
-      error ->
-      //un error :v
-    })
+  fun listarEmpleados() : String{
+    return "http://192.168.1.37/API-PHP/Api.php?apicall=readempleados"
   }
+//  fun obteneData(){
+//    var request = JsonObjectRequest(GET,uri,null, Response.Listener {
+//            response ->
+//      try {
+//          var mJsonArray= response.getJSONArray("contenido")
+//          val list = ArrayList<Employees>()
+//          var x = 0
+//          while(x<mJsonArray.length()){
+//            val jsonObject = mJsonArray.getJSONObject(x)
+//              list.add(
+//                Employees(
+//                  jsonObject.getString("dni"),
+//                  jsonObject.getString("nombre"),
+//                  jsonObject.getString("apellido"),
+//                  jsonObject.getString("categoria"),
+//                  jsonObject.getInt("id_empresa"),
+//                  jsonObject.getInt("estado")
+//                )
+//              )
+//              x++
+//            val adapter = EmployeeAdapter(context,list)
+//            view.my_recyclerV.adapter = adapter
+//        }
+//      }catch ( e : JSONException){
+//
+//      }
+//    },
+//    Response.ErrorListener {
+//      error ->
+//    })
+//  }
 
 
 

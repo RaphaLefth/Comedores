@@ -52,18 +52,6 @@ class AdministratorActivity : AppCompatActivity() {
         adminAdapter = AdminAdapter(applicationContext,arrayList)
         recyclerView.adapter = adminAdapter
 
-
-/**        rvtest = findViewById(R.id.rvEmpleados)
-//        gridLayoutManager = GridLayoutManager(applicationContext,1,LinearLayoutManager.VERTICAL,false)
-//        rvtest.layoutManager = gridLayoutManager
-//        rvtest.setHasFixedSize(false)
-
-        //api call
-     //   val url="http://192.168.1.37/API-PHP/Api.php?apicall=readempleados"
-    //    AsyncTaskHandleJson().execute(url)
-        //end call
-//        txtWelcome = findViewById(R.id.txtWelcomeAdmin)
-       presenter.welcomeMsg(txtWelcome)**/
     }
 
     private fun setDataOnList(): ArrayList<ItemBtnGeneric> {
@@ -74,52 +62,6 @@ class AdministratorActivity : AppCompatActivity() {
         items.add(ItemBtnGeneric(R.drawable.ic_services_comedor_24,"Servicios"))
         return items
     }
-/*
-    inner class AsyncTaskHandleJson: AsyncTask<String,String,String>(){
-
-        override fun doInBackground(vararg url: String?): String {
-            var text : String
-            val connection =URL(url[0]).openConnection() as HttpURLConnection
-            try {
-                connection.connect()
-                text = connection.inputStream.use { it.reader().use{
-                        reader -> reader.readText()
-                } }
-            }finally {
-                connection.disconnect()
-            }
-            return text
-        }
-        override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
-            handleJson(result)
-        }
-
-        private fun handleJson(jsonString: String?) {
-            val jsonArray = JSONArray(jsonString)
-            val list = ArrayList<Employees>()
-            var x = 0
-            while (x< jsonArray.length()){
-                Log.i("tagconvertstr", "[$x]");
-                val jsonObject = jsonArray.getJSONObject(x)
-                list.add(
-                    Employees(
-                        jsonObject.getInt("id_empleado"),
-                        jsonObject.getString("dni"),
-                        jsonObject.getString("nombre"),
-                        jsonObject.getString("apellido"),
-                        jsonObject.getString("categoria"),
-                        jsonObject.getInt("id_empresa"),
-                        jsonObject.getInt("estado")
-                    )
-                )
-                x++
-            }
-            val adapter = EmployeeAdapter(this@AdministratorActivity,list)
-            rvtest.adapter = adapter
-        }
-
-    }*/
 }
 
 

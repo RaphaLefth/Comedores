@@ -158,7 +158,7 @@ class AdminComedorAdapter(val context: Context, val comedorlistData: ArrayList<C
 
 
         init {
-
+            //delete button
             itemView.delete_data.setOnClickListener {
 
                 deleteData(currentComedorlist!!.idComedor)
@@ -167,13 +167,13 @@ class AdminComedorAdapter(val context: Context, val comedorlistData: ArrayList<C
 
                 notifyDataSetChanged()
             }
-            //editar
+            //edit button
             itemView.edite_data.setOnClickListener {
 
                 val i= Intent(context, AdminEditDataComedorActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                val countryData = comedorlistData[currentPosition]
+                val comedorPosition = comedorlistData[currentPosition]
 
-                i.putExtra("getlistData",countryData)
+                i.putExtra("getlistData",comedorPosition)
                 context.startActivity(i)
             }
 

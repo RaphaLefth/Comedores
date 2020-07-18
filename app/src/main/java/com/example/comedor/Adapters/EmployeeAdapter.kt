@@ -77,12 +77,11 @@ class EmployeeAdapter(val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemEmployee: Employees = list[position]
         holder.apply {
-            employeeId.text = itemEmployee.id.toString()
             employeeName.text = itemEmployee.nombre
             employeeDni.text = itemEmployee.dni
             employeeLastName.text = itemEmployee.apellido
-            employeeCategory.text = itemEmployee.categoria
-            employeeIdEmpresa.text = itemEmployee.id_empresa.toString()
+            employeeCategory.text = itemEmployee.id_categoria.toString()
+            employeeIdEmpresa.text = itemEmployee.ruc_empresa
             employeeStatus.text = itemEmployee.estado.toString()
         }
 //        holder.itemView.setOnClickListener()

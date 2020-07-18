@@ -13,7 +13,10 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.comedor.Adapters.AdminComedorAdapter
+import com.example.comedor.Adapters.AdminEmpleadosAdapter
+import com.example.comedor.Api.Api
 import com.example.comedor.Models.ComedorModelData
+import com.example.comedor.Models.Employees
 import com.example.comedor.R
 import kotlinx.android.synthetic.main.activity_admin_comedor.*
 import org.json.JSONObject
@@ -23,12 +26,10 @@ class AdminComedor : AppCompatActivity() {
     internal lateinit var queue: RequestQueue
     internal lateinit var adapter: AdminComedorAdapter
 
-    internal var getUserDataList: ArrayList<ComedorModelData> = ArrayList()
+    internal var getUserDataList: ArrayList<Employees> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_comedor)
-
-//        supportActionBar!!.title = "ComedorAdmin"
         supportActionBar?.hide()
         queue= Volley.newRequestQueue(this)
 
@@ -46,36 +47,35 @@ class AdminComedor : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         userrecyclerview.layoutManager = layoutManager
-        //recyclerView.setLayoutManager(GridLayoutManager(this, 3))
         progressBar.visibility = View.VISIBLE
-        getData()
+        getEmpleados()
 
 
     }
 
 
-    private fun getData(){
+    private fun getEmpleados(){
         getUserDataList.clear()
-
-        //request traer data
         val stringRequest = object : StringRequest(
-            Request.Method.POST,
-            getString(R.string.baseurl)+"getdata.php", Response.Listener { response ->
+            Method.POST,
+            getString(R.string.baseurl1), Response.Listener { response ->
                 Log.e("demo==>>",response.toString());
                 try {
                     val jsonObject = JSONObject(response)
-
-                    val dataArray = jsonObject.getJSONArray("data")
+                    val dataArray = jsonObject.getJSONArray("empleados")
                     for (i in 0 until dataArray.length()) {
                         progressBar.visibility = View.GONE
                         val dataobj = dataArray.getJSONObject(i)
-                        val m=ComedorModelData(dataobj.getString("id"),
-                        dataobj.getString("Name"),
-                        dataobj.getString("email"),
-                        dataobj.getString("address"))
+                        val m=
+                            Employees(dataobj.getString("dni"),
+                            dataobj.getString("nombre"),
+                            dataobj.getString("apellido"),
+                            dataobj.getInt("id_categoria"),
+                            dataobj.getString("ruc_empresa"),
+                            dataobj.getInt("estado"))
                         getUserDataList.add(m)
                     }
-                    val adapter= AdminComedorAdapter(this, getUserDataList)
+                    val adapter= AdminEmpleadosAdapter(this, getUserDataList)
                     userrecyclerview.adapter = adapter
                     swipeRefresh.isRefreshing = false
 
@@ -105,5 +105,55 @@ class AdminComedor : AppCompatActivity() {
         queue.add(stringRequest)
 
     }
+/**
+//    private fun getData(){
+//        getUserDataList.clear()
+//        val stringRequest = object : StringRequest(
+//            Method.POST,
+//            getString(R.string.baseurl)+"getdata.php", Response.Listener { response ->
+//                Log.e("demo==>>",response.toString());
+//                try {
+//                    val jsonObject = JSONObject(response)
+//
+//                    val dataArray = jsonObject.getJSONArray("data")
+//                    for (i in 0 until dataArray.length()) {
+//                        progressBar.visibility = View.GONE
+//                        val dataobj = dataArray.getJSONObject(i)
+//                        val m=ComedorModelData(dataobj.getString("id"),
+//                        dataobj.getString("Name"),
+//                        dataobj.getString("email"),
+//                        dataobj.getString("address"))
+//                        getUserDataList.add(m)
+//                    }
+//                    val adapter= AdminComedorAdapter(this, getUserDataList)
+//                    userrecyclerview.adapter = adapter
+//                    swipeRefresh.isRefreshing = false
+//
+//
+//                } catch (e: Exception) {
+//                    Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
+//                    e.printStackTrace()
+//
+//                    swipeRefresh.isRefreshing = false
+//                }
+//            }, Response.ErrorListener {
+//
+//                swipeRefresh.isRefreshing = false
+//                Toast.makeText(this,
+//                    "Something is wrong",
+//                    Toast.LENGTH_LONG).show()
+//            }) {
+//            override fun getParams(): MutableMap<String, String> {
+//                return  HashMap<String, String>()
+//                /*               params["page"] = "1"
+//                               params["exam_type"] ="m"*/
+//
+////                return params
+//
+//            }
+//        }
+//        queue.add(stringRequest)
+//
+//    }**/
 
 }

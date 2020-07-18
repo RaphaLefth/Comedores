@@ -6,5 +6,4 @@ data class ComedorModelData(var idComedor : String
                             , var nombreComedor : String,
                             var owner: String,
                             var ruc : String
-): Serializable {
-}
+): Serializable
