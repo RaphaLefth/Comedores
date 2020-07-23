@@ -39,8 +39,8 @@ class AdminEditDataComedorActivity : AppCompatActivity() {
         userdata = g.getSerializableExtra("getlistData") as ComedorModelData
 
         Log.e("currentlist->",userdata.toString())
-        ename.setText(userdata.nombreComedor)
-        eemail.setText(userdata.owner)
+        ename.setText(userdata.nombre)
+        eemail.setText(userdata.administrador)
         eaddress.setText(userdata.ruc)
     }
 
@@ -103,7 +103,7 @@ class AdminEditDataComedorActivity : AppCompatActivity() {
 
             override fun getParams(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
-                params["id"] = userdata.idComedor
+                params["id"] = userdata.id_comedor
                 params["name"] = ename.text.toString()
                 params["email"] = eemail.text.toString()
                 params["address"] = eaddress.text.toString()

@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
@@ -16,12 +18,12 @@ import com.example.comedor.Models.Employees
 import com.example.comedor.R
 import com.example.comedor.View.AdministratorView.AdminEditDataComedorActivity
 import kotlinx.android.synthetic.main.admin_employe_layout_list.view.*
-import kotlinx.android.synthetic.main.admincomedorlayout.view.delete_data
-import kotlinx.android.synthetic.main.admincomedorlayout.view.edite_data
+//import kotlinx.android.synthetic.main.admincomedorlayout.view.delete_data
+//import kotlinx.android.synthetic.main.admincomedorlayout.view.edite_data
 import org.json.JSONObject
 
 class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayList<Employees>)
-    : RecyclerView.Adapter<AdminEmpleadosAdapter.MyEmployeeViewHolder>() {
+    : RecyclerView.Adapter<AdminEmpleadosAdapter.MyEmployeeViewHolder>()  {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyEmployeeViewHolder {
 
         val view = LayoutInflater.from(context).inflate(
@@ -43,32 +45,34 @@ class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayLi
 
     }
 
+
+
     inner class MyEmployeeViewHolder(itemsEmpleadoView: View) : RecyclerView.ViewHolder(itemsEmpleadoView){
         private var currentEmployeelist: Employees? = null
         private var currentPosition: Int = 0
 
 
-
-        init {
-            //delete button
-//            itemsEmpleadoView.delete_data.setOnClickListener {
 //
-//                deleteData(currentEmployeelist!!.dni)
+//        init {
+//            //delete button
+////            itemsEmpleadoView.delete_data.setOnClickListener {
+////
+////                deleteData(currentEmployeelist!!.dni)
+////
+////                empleados.removeAt(currentPosition)
+////
+////                notifyDataSetChanged()
+////            }
+//            //edit button
+////            itemsEmpleadoView.edite_data.setOnClickListener {
+////
+////                val i= Intent(context, AdminEditDataComedorActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+////                val employerPosition = empleados[currentPosition]
+////                i.putExtra("getEmployed",employerPosition)
+////                context.startActivity(i)
+////            }
 //
-//                empleados.removeAt(currentPosition)
-//
-//                notifyDataSetChanged()
-//            }
-            //edit button
-//            itemsEmpleadoView.edite_data.setOnClickListener {
-//
-//                val i= Intent(context, AdminEditDataComedorActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                val employerPosition = empleados[currentPosition]
-//                i.putExtra("getEmployed",employerPosition)
-//                context.startActivity(i)
-//            }
-
-        }
+//        }
         fun setData(employeerslistData: Employees?, pos: Int) {
 
 
@@ -76,9 +80,9 @@ class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayLi
                 itemView.emp_dni.text = employeerslistData.dni
                 itemView.emp_name.text = employeerslistData.nombre
                 itemView.emp_lastname.text = employeerslistData.apellido
-                itemView.emp_cat.text = employeerslistData.id_categoria.toString()
-                itemView.ruc_empresa_emp.text = employeerslistData.ruc_empresa
-                itemView.estado_emp.text = employeerslistData.estado.toString()
+//                itemView.emp_cat.text = employeerslistData.id_categoria.toString()
+//                itemView.ruc_empresa_emp.text = employeerslistData.ruc_empresa
+//                itemView.estado_emp.text = employeerslistData.estado.toString()
 
 
             }
@@ -137,4 +141,6 @@ class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayLi
 
         queue.add(stringRequest)
     }
+
+
 }

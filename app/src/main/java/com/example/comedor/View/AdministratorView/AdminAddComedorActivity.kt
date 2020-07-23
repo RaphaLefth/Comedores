@@ -60,37 +60,28 @@ class AdminAddComedorActivity : AppCompatActivity() {
 
         val stringRequest = object : StringRequest(
             Method.POST,
-            getString(R.string.baseurl)+"adduser.php", Response.Listener { response ->
-                Log.e("demo==>>",response.toString());
+            getString(R.string.nuevoComedor), Response.Listener { response ->
+                Log.e("nuevoComedor==>>",response.toString());
                 try {
-
-
                     val jsonObject = JSONObject(response)
-
-
-                    showToast(jsonObject.getString("msg"))
-
-
-
-
-                } catch (e: Exception) {
+                    showToast(jsonObject.getString("msg"))}
+                catch (e: Exception) {
                     Toast.makeText(this, "Exception error"+e.message, Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
-
-
                 }
             }, Response.ErrorListener {
-
-
                 Toast.makeText(this,
                     "Something is wrong",
                     Toast.LENGTH_LONG).show()
             }) {
+            //aca se parsea
             override fun getParams(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
-                params["name"] = name.text.toString()
-                params["email"] = email.text.toString()
-                params["address"] = address.text.toString()
+                params["nombre"] = name.text.toString()
+                params["administrador"] = email.text.toString()
+                params["estado"] = address.text.toString()
+                params["telefono"] = address.text.toString()
+                params["correo"] = address.text.toString()
 
                 return params
 
