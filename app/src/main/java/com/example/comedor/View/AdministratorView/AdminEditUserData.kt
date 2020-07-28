@@ -6,9 +6,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AlertDialogLayout
+import androidx.core.view.get
+import com.dev.materialspinner.MaterialSpinner
 import com.example.comedor.Models.User
 import com.example.comedor.R
 import com.example.comedor.View.RecoverView.ForgotPassActivity
@@ -18,10 +22,12 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_admin_edit_user_data.*
 import java.lang.Exception
 
-class AdminEditUserData : AppCompatActivity() {
+class AdminEditUserData : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var dbReference: DatabaseReference
     private lateinit var mauth : FirebaseAuth
     private lateinit var database: FirebaseDatabase
+    private lateinit var spinner: MaterialSpinner
+    private lateinit var list : Array<String>
     private lateinit var user : User
     private val KEY_NAME = "user_name"
     private val KEY_LASTNAME = "user_lastn"
@@ -48,6 +54,8 @@ class AdminEditUserData : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_edit_user_data)
+        list =  resources.getStringArray(R.array.types)
+        spinner =findViewById(R.id.sp_edit_perm)
         if(savedInstanceState !=null){
             user = savedInstanceState.getSerializable("usersaved") as User
         }else{
@@ -58,14 +66,20 @@ class AdminEditUserData : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-
+        spinner.getSpinner().onItemSelectedListener = this
+        if (spinner!=null){
+            val ad = ArrayAdapter(this,android.R.layout.simple_spinner_item,list)
+            ad.setDropDownViewResource(android.R.layout.select_dialog_item)
+            spinner.setAdapter(ad)
+            spinner.setLabel("Tipo")
+        }
 //        Toast.makeText(this,user.toString(),Toast.LENGTH_LONG).show()
         setUserInfo(user)
 
         editPermisos.setOnClickListener {
-
-            Toast.makeText(applicationContext,"No disponible por el momento",Toast.LENGTH_LONG).show()
-
+            spinner.visibility = View.VISIBLE
+//            Toast.makeText(applicationContext,"No disponible por el momento",Toast.LENGTH_LONG).show()
+            editPerm(user)
             /**
              *
             //            val db = AlertDialog.Builder(this,R.style.Widget_AppCompat_ButtonBar_AlertDialog)
@@ -81,6 +95,9 @@ class AdminEditUserData : AppCompatActivity() {
 
         btnSaveChanges.setOnClickListener{
             updateUser(user)
+            editPerm(user)
+            spinner.visibility = View.GONE
+           disableData()
         }
         btnEnableEditUser.setOnClickListener {
             setData()
@@ -106,17 +123,61 @@ class AdminEditUserData : AppCompatActivity() {
 
     }
 
+
     private fun setData() {
         editUserName.isEnabled = true
         editUserLastName.isEnabled = true
         editUserEmail.isEnabled = false
-
+        editPermisos.isEnabled = true
+        btnSaveChanges.isEnabled = true
     }
 
     private fun disableData(){
         editUserName.isEnabled = false
         editUserLastName.isEnabled = false
         editUserEmail.isEnabled = false
+        editPermisos.isEnabled = false
+        btnSaveChanges.isEnabled = false
+        spinner.visibility = View.GONE
+    }
+    private fun editPerm(user: User?)
+    {
+        btnSaveChanges.isEnabled = true
+        database = FirebaseDatabase.getInstance()
+        mauth = FirebaseAuth.getInstance()
+        dbReference = database.reference
+        dbReference.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                Toast.makeText(this@AdminEditUserData,"Error al actualizar los datos",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                val id = user!!.id.toString()
+//                user.typeUser = spinner.getSpinner().selectedItem.toString()
+                val map = hashMapOf<String,Any>()
+                map["nombre"] = editUserName.text.toString()
+                map["id"] = id.toString()
+                map["lastname"] = editUserLastName.text.toString()
+                map["email"]= editUserEmail.text.toString()
+                map["password"]= user.password
+                map["typeUser"] = c(user.typeUser)
+                dbReference.child("User").child(id).updateChildren(map)
+
+
+            }
+
+        })
+
+    }
+
+    private fun c(s : String): String {
+        var r = "0"
+        when(s){
+            "Administrador"-> r="1"
+            "Comedor"-> r="2"
+            "Reporte"->r="3"
+        }
+        return r
     }
 
     private fun updateUser(user : User?) {
@@ -127,7 +188,7 @@ class AdminEditUserData : AppCompatActivity() {
 
         dbReference.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-
+                Toast.makeText(this@AdminEditUserData,"Error al actualizar los datos",Toast.LENGTH_SHORT).show()
             }
 
             override fun onDataChange(p0: DataSnapshot) {
@@ -145,6 +206,7 @@ class AdminEditUserData : AppCompatActivity() {
 
         })
     disableData()
+        Toast.makeText(this@AdminEditUserData,"Usuario actualizado",Toast.LENGTH_SHORT).show()
     }
 
 //    private fun changeRole(user: User?): View.OnClickListener? {
@@ -168,7 +230,13 @@ class AdminEditUserData : AppCompatActivity() {
 
     }
 
+    override fun onNothingSelected(parent: AdapterView<*>?) {
 
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        user.typeUser = spinner.getSpinner().selectedItem.toString()
+    }
 
 
 }

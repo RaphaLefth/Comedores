@@ -129,7 +129,17 @@
                     android:textSize="28sp"
                     android:text="Cambiar permisos"
                     />
+
             </LinearLayout>
+            <com.dev.materialspinner.MaterialSpinner
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:id="@+id/sp_edit_perm">
+
+            </com.dev.materialspinner.MaterialSpinner>
+
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -151,6 +161,7 @@
             android:layout_height="10dp"/>
         <Button
             android:id="@+id/btnSaveChanges"
+            android:enabled="false"
             android:textColor="#fff"
             android:background="@drawable/btn_style_alter"
             android:layout_marginTop="5dp"
