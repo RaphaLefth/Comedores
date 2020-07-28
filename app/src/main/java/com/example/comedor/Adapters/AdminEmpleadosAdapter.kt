@@ -21,9 +21,10 @@ import kotlinx.android.synthetic.main.admin_employe_layout_list.view.*
 //import kotlinx.android.synthetic.main.admincomedorlayout.view.delete_data
 //import kotlinx.android.synthetic.main.admincomedorlayout.view.edite_data
 import org.json.JSONObject
+import java.io.File
 
 class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayList<Employees>)
-    : RecyclerView.Adapter<AdminEmpleadosAdapter.MyEmployeeViewHolder>()  {
+    : RecyclerView.Adapter<AdminEmpleadosAdapter.MyEmployeeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyEmployeeViewHolder {
 
         val view = LayoutInflater.from(context).inflate(

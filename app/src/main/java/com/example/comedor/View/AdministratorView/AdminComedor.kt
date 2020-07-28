@@ -70,7 +70,7 @@ class AdminComedor : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         userrecyclerview.layoutManager = layoutManager
-        progressBar.visibility = View.VISIBLE
+//        progressBar.visibility = View.VISIBLE
 //        getEmpleados()
         getComedores()
 
@@ -97,8 +97,7 @@ class AdminComedor : AppCompatActivity() {
     private fun saveData(){
 
         val stringRequest = object : StringRequest(
-            Method.POST,
-            getString(R.string.nuevoComedor), Response.Listener { response ->
+            Method.POST,getString(R.string.baseurl)+"/comedor/nuevo", Response.Listener { response ->
                 Log.e("nuevoComedor==>>",response.toString());
                 try {
                     val jsonObject = JSONObject(response)
@@ -142,7 +141,7 @@ class AdminComedor : AppCompatActivity() {
     private fun getComedores(){
         comedoresList.clear()
         val request = object : StringRequest(
-            Method.GET,getString(R.string.listarComedores),Response.Listener {response ->
+            Method.GET,getString(R.string.baseurl)+"comedor",Response.Listener {response ->
             Log.e("comedor==>" ,response.toString());
                 try {
 
@@ -176,58 +175,23 @@ class AdminComedor : AppCompatActivity() {
             }
         ){
             override fun getParams(): MutableMap<String, String> {
+//                params.put("id_comedor","")
+//                params.put("id_empresa","")
+//                return params
                 return  HashMap<String, String>()
+            }
+
+            override fun getHeaders(): MutableMap<String, String> {
+
+                val headers = HashMap<String,String>()
+                headers["id_comedor"] = ""
+                headers["id_empresa"] = ""
+                return  headers
             }
         }
         queue.add(request)
     }
 
-    private fun getEmpleados(){
-        getUserDataList.clear()
-        val stringRequest = object : StringRequest(
-            Method.GET,
-            getString(R.string.listarEmpleadoApi), Response.Listener { response ->
-                Log.e("demo==>>",response.toString());
-                try {
-                    val jsonObject = JSONObject(response)
-                    val dataArray = jsonObject.getJSONArray("empleados")
-                    for (i in 0 until dataArray.length()) {
-                        progressBar.visibility = View.GONE
-                        val dataobj = dataArray.getJSONObject(i)
-                        val m=
-                            Employees(dataobj.getString("dni"),
-                            dataobj.getString("nombre"),
-                            dataobj.getString("apellido"),
-                            dataobj.getInt("id_categoria"),
-                            dataobj.getString("ruc_empresa"),
-                            dataobj.getInt("estado"))
-                        getUserDataList.add(m)
-                    }
-                    val adapter= AdminEmpleadosAdapter(this, getUserDataList)
-                    userrecyclerview.adapter = adapter
-                    swipeRefresh.isRefreshing = false
 
-
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
-                    e.printStackTrace()
-
-                    swipeRefresh.isRefreshing = false
-                }
-            }, Response.ErrorListener {
-
-                swipeRefresh.isRefreshing = false
-                Toast.makeText(this,
-                    "Something is wrong",
-                    Toast.LENGTH_LONG).show()
-            }){
-            override fun getParams(): MutableMap<String, String> {
-                return  HashMap<String, String>()
-
-            }
-        }
-        queue.add(stringRequest)
-
-    }
 
 }

@@ -11,6 +11,38 @@
     android:paddingEnd="20dp"
     tools:ignore="ExtraText">
 
+
+    <EditText
+        android:id="@+id/passForgotE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/forgottext"
+        />
+    <Space
+        android:layout_width="40dp"
+        android:layout_height="20dp"/>
+    <Button
+        android:id="@+id/btnRecover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sendPass"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"/>
+    <Space
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+    <Button
+
+    android:id="@+id/btnback"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/getBackbtn"
+    android:textColor="@android:color/white"
+    android:background="@color/colorPrimary"/>
+
+
     <ProgressBar
         android:id="@+id/progressBar3"
         style="?android:attr/progressBarStyle"
@@ -19,19 +51,4 @@
         android:visibility="gone"
         android:indeterminate="true"/>
 
-    <EditText
-        android:id="@+id/passForgotE"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/forgottext" />
-
-    <Button
-        android:id="@+id/btnRecover"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sendPass"
-        android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"/>
 </LinearLayout>

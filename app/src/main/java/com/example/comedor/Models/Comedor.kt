@@ -9,4 +9,8 @@ data class Comedor(var id_comedor : Int,
                     var estado : Int,
                     var telefono : String,
                     var email : String
-): Serializable
+): Serializable{
+    override fun toString(): String {
+        return this.nombre
+    }
+}

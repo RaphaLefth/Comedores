@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context="com.example.comedor.View.AdministratorView.AdminEditUserData">
+
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -17,29 +18,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:background="@drawable/gradientbackground"
+                android:background="@drawable/btn_style_alter"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:orientation="vertical">
                 <ImageView
+                    android:id="@+id/img_user"
                     android:layout_marginTop="40dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:src="@drawable/bike"/>
                 <EditText
+
                     android:id="@+id/editUserName"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wiliam Snoe"
-                    android:textColor="#fff"
+                    android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:textSize="21sp"
-                    android:editable="false"/>
+                    android:textSize="21sp" />
             </LinearLayout>
         </RelativeLayout>
+       <Space
+           android:layout_width="25dp"
+           android:layout_height="20dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,16 +59,16 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_name"/>
-                <TextView
+                    android:src="@drawable/ic_name"
+                    android:layout_gravity="center_vertical"/>
+                <EditText
                     android:id="@+id/editUserLastName"
                     android:textStyle="bold"
                     android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:textSize="28sp"
-                    android:text="Apellido"/>
+                    android:textSize="24sp"
+                    android:hint="@string/lastname" />
             </LinearLayout>
             <LinearLayout
                 android:padding="5dp"
@@ -74,21 +78,20 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_email_black_24dp"/>
-                <TextView
+                    android:src="@drawable/ic_email_black_24dp"
+                    android:layout_gravity="center_vertical"/>
+                <EditText
                     android:id="@+id/editUserEmail"
                     android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
                     android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_height="wrap_content"
-
-                    android:paddingLeft="10dp"
-
-                    android:textSize="28sp"
-                    android:text="Wiliam@gmail.com"/>
+                    android:textSize="24sp"
+                    android:hint="@string/email"/>
             </LinearLayout>
 
             <LinearLayout
+
                 android:orientation="horizontal"
                 android:padding="5dp"
                 android:layout_width="match_parent"
@@ -105,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:textSize="28sp"
-                    android:text="resta"/>
+                    android:text="@string/restablecerPassword"/>
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
@@ -128,16 +131,35 @@
                     />
             </LinearLayout>
         </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:layout_height="match_parent">
         <Button
             android:id="@+id/btnEnableEditUser"
             android:textColor="#fff"
-            android:background="@drawable/buttonstyle"
+            android:background="@drawable/btn_style_alter"
             android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/editUserInfo"/>
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="10dp"/>
+        <Button
+            android:id="@+id/btnSaveChanges"
+            android:textColor="#fff"
+            android:background="@drawable/btn_style_alter"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar_cambios"/>
+    </LinearLayout>
+
 
    </LinearLayout>
 </ScrollView>

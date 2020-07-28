@@ -59,8 +59,7 @@ class AdminAddComedorActivity : AppCompatActivity() {
     private fun saveData(){
 
         val stringRequest = object : StringRequest(
-            Method.POST,
-            getString(R.string.nuevoComedor), Response.Listener { response ->
+            Method.POST, getString(R.string.baseurl)+ "comedor/nuevo", Response.Listener { response ->
                 Log.e("nuevoComedor==>>",response.toString());
                 try {
                     val jsonObject = JSONObject(response)

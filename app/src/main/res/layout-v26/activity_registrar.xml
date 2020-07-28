@@ -51,14 +51,12 @@
         android:text="@string/select_type"
         android:textSize = "20dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-
+    <com.dev.materialspinner.MaterialSpinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dialog"
-        android:tooltipText="Seleccione"/>
+        android:id="@+id/material_spinner"
+        />
+
 
     <Button
         android:id="@+id/btnEnviar"

@@ -25,6 +25,7 @@ class AdminAdapter(var context: Context, private var arrayList: ArrayList<ItemBt
        return arrayList.size
     }
 
+
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
 
         val itemBtnGeneric : ItemBtnGeneric = arrayList[position]
@@ -39,6 +40,14 @@ class AdminAdapter(var context: Context, private var arrayList: ArrayList<ItemBt
         }
         holder.icons.setOnClickListener {
             iconBtn(position)
+        }
+        holder.titles.setOnLongClickListener {
+            iconBtn(position)
+            true
+        }
+        holder.icons.setOnLongClickListener {
+            iconBtn(position)
+            true
         }
 
     }

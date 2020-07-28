@@ -38,6 +38,7 @@ class LoginPresenter(
     }
 
      private fun check() {
+
          mDatabase.child("User").child(mAuth.currentUser!!.uid)
              .addListenerForSingleValueEvent(object : ValueEventListener {
                  override fun onCancelled(p0: DatabaseError) {

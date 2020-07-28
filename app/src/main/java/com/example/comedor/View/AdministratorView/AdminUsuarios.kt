@@ -48,7 +48,7 @@ class AdminUsuarios : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         userListRecycler.layoutManager = layoutManager
-        progressBarUserList.visibility= View.VISIBLE
+//        progressBarUserList.visibility= View.VISIBLE
         getData()
     }
 

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,32 +14,55 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".View.AdministratorView.AdminComedorInfo"></activity>
-        <activity android:name=".View.AdministratorView.AdminEditUserData" />
-        <activity android:name=".View.AdministratorView.AdminAddComedorActivity" />
-        <activity android:name=".View.AdministratorView.AdminEditDataComedorActivity" />
-        <activity android:name=".View.AdministratorView.AdminPersonalInfo" />
-        <activity android:name=".View.AdministratorView.AdminEmployess" />
-        <activity android:name=".View.AdministratorView.AdminUsuarios" />
-        <activity android:name=".View.AdministratorView.AdminServicios" />
-        <activity android:name=".View.AdministratorView.AdminComedor" />
-        <activity android:name=".View.AdministratorView.rolPermissions" />
-        <activity android:name=".View.ComedorView.ComedorCheckReports" />
-        <activity android:name=".View.ComedorView.CheckPersonalView" />
-        <activity android:name=".View.ComedorView.AddConsumoView" />
-        <activity android:name=".View.ComedorView.ServiceActivity" />
-        <activity android:name=".View.ComedorView.ComedorInfoView" />
-        <activity android:name=".View.ComedorView.ServicesInfoView" />
-        <activity android:name=".View.ComedorView.ComedorActivity" />
-        <activity android:name=".View.AdministratorView.AdministratorActivity" />
-        <activity android:name=".View.RecoverView.ForgotPassActivity" />
-        <activity android:name=".View.AdministratorView.ReporterActivity" />
-        <activity android:name=".View.RegisterView.RegistrarActivity" />
-        <activity android:name=".View.LoginView.LoginActivity">
+        <activity android:name=".View.AdministratorView.AdminComedorInfo"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".View.AdministratorView.AdminEditUserData"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.AdministratorView.AdminAddComedorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.AdministratorView.AdminEditDataComedorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.AdministratorView.AdminPersonalInfo"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.AdministratorView.AdminEmployess"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.AdministratorView.AdminUsuarios"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.AdministratorView.AdminServicios"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.AdministratorView.AdminComedor"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.AdministratorView.rolPermissions"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.ComedorView.ComedorCheckReports"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.ComedorView.CheckPersonalView"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.ComedorView.AddConsumoView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.ComedorView.ServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.ComedorView.ComedorInfoView"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.ComedorView.ServicesInfoView"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".View.ComedorView.ComedorActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.AdministratorView.AdministratorActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.RecoverView.ForgotPassActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.AdministratorView.ReporterActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.RegisterView.RegistrarActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".View.LoginView.LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
     </application>

@@ -38,9 +38,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="baseurl">"http://192.168.1.37/API-PHP/"</string>
-    <string name="nuevoComedor">"http://192.168.1.37/API-PHP/comedor/nuevo</string>
-    <string name="listarEmpleadoApi">"http://192.168.1.37/API-PHP/empleado"</string>
+    <string name="baseurl">"https://apimovil.000webhostapp.com/"</string>
     <string name="bienvenido">BIenvenido:</string>
     <string name="enterDNI">Ingrese su DNI</string>
     <string name="total">Total</string>
@@ -56,10 +54,12 @@
     <string name="editar">EDITAR</string>
     <string name="agregar">AGREGAR</string>
     <string name="listado_de_comedores">Listado de comedores</string>
-    <string name="listarComedores">"http://192.168.1.37/API-PHP/comedor"</string>
     <string name="correo">Correo</string>
     <string name="nombre_de_comedor">Nombre de Comedor</string>
     <string name="regresar">Regresar</string>
     <string name="guardar_cambios">Guardar cambios</string>
+    <string name="buscar">Buscar</string>
+    <string name="lista_de_empleados">Lista de Personal</string>
+    <string name="restablecerPassword">Restablecer constraseña</string>
 
 </resources>

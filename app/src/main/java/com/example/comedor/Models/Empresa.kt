@@ -2,9 +2,10 @@ package com.example.comedor.Models
 
 import java.io.Serializable
 
-data class Servicio(
-    val id : String,
-    val descripcion : String
+class Empresa(
+    val ruc : String,
+    val nombre : String,
+    val sedes : String
 ) : Serializable{
 
 }

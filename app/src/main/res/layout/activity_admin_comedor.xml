@@ -80,42 +80,6 @@
             android:enabled="false"/>
     </LinearLayout>
 
-
-<!--        <LinearLayout-->
-
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-
-<!--                android:textColor="#FFF"-->
-<!--                android:textSize="18sp"-->
-<!--                android:layout_gravity="left|center"-->
-<!--                android:gravity="left|center"-->
-<!--                android:padding="15sp"-->
-<!--                android:layout_height="wrap_content"/>-->
-
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/adddata"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_weight="4"-->
-<!--            android:layout_gravity="right|center"-->
-<!--            android:gravity="right|center"-->
-<!--            android:padding="5sp"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="34sp"-->
-<!--                android:padding="15sp"-->
-<!--                android:background="@drawable/ic_add_circle_black_24dp"-->
-<!--                android:layout_height="34sp"/>-->
-
-<!--        </LinearLayout>-->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="5"

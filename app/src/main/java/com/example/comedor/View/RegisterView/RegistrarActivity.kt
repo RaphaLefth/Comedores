@@ -1,22 +1,19 @@
 package com.example.comedor.View.RegisterView
 
 import android.app.ProgressDialog
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.dev.materialspinner.MaterialSpinner
 import com.example.comedor.Presenter.RegisterPresenter.RegisterPresenter
 import com.example.comedor.R
-import com.example.comedor.View.LoginView.LoginActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_registrar.view.*
 
 class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterView.OnItemSelectedListener{
 
@@ -43,10 +40,11 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
         txtlastName = findViewById(R.id.txtLastName)
         txtEmail = findViewById(R.id.txtEmail)
         txtPassword = findViewById(R.id.txtPassword)
-        progressBar = findViewById(R.id.progressBar)
+//        progressBar = findViewById(R.id.progressBar)
         btnRegister = findViewById(R.id.btnEnviar)
         spinner = findViewById(R.id.material_spinner)
-        spinner.spinner.onItemSelectedListener = this
+
+        spinner.getSpinner().onItemSelectedListener = this
         if (spinner != null) {
 //            val adapter = ArrayAdapter(this,
 //                android.R.layout.simple_spinner_item, list)
@@ -55,14 +53,16 @@ class RegistrarActivity : AppCompatActivity() , View.OnClickListener, AdapterVie
 
             val aa = ArrayAdapter(this,android.R.layout.simple_spinner_item,list)
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.spinner.adapter = aa
+            spinner.setAdapter(aa)
+            spinner.setLabel("Tipos")
+//            spinner.setError("Elija un tipo de usuario")
 
         }
         btnRegister.setOnClickListener(this)
         FirebaseApp.initializeApp(this)
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
-        dbReference = database.reference
+        dbReference = database.reference //se usa este
 
         presenter = RegisterPresenter(this,auth,dbReference)
 
