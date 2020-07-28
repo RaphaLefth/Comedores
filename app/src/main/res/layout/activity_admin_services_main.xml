@@ -7,6 +7,7 @@
     android:gravity="center_horizontal|center_vertical"
     android:padding="20dp"
     tools:context=".View.AdministratorView.AdminServicios"
+    android:id="@+id/root_layout"
     android:orientation="vertical">
     <Spinner
         android:layout_width="match_parent"
@@ -22,17 +23,17 @@
         android:spinnerMode="dropdown"
         android:layout_height="wrap_content"/>
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-
+        android:paddingTop="50dp"
         android:id="@+id/sr_comedor_servicio"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_servicios_disponibles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_servicios_disponibles"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
 </LinearLayout>

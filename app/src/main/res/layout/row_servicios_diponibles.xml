@@ -8,32 +8,62 @@
     app:cardElevation="4dp"
     app:cardMaxElevation="6dp"
     android:padding="15dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:layout_height="wrap_content"
     android:background="@color/black">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:id="@+id/ly_cv"
+
+        >
         <TextView
-            android:paddingStart="5dp"
+            app:layout_constraintStart_toStartOf="@+id/ly_cv"
+            app:layout_constraintTop_toTopOf="@+id/ly_cv"
             android:id="@+id/tv_servicio"
             android:layout_width="wrap_content"
             android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="sample"
             android:textSize="24sp"/>
-        <Space
-            android:layout_width="130dp"
-            android:layout_height="15dp"/>
         <TextView
+            app:layout_constraintEnd_toEndOf="@+id/ly_cv"
+            app:layout_constraintTop_toTopOf="@+id/ly_cv"
             android:id="@+id/tv_precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:text="another sample"
             android:textStyle="bold"/>
-    </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="10dp">-->
+<!--        <TextView-->
+<!--            android:paddingStart="5dp"-->
+<!--            android:id="@+id/tv_servicio"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="sample"-->
+<!--            android:textSize="24sp"/>-->
+<!--        <Space-->
+<!--            android:layout_width="130dp"-->
+<!--            android:layout_height="15dp"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_precio"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp"-->
+<!--            android:text="another sample"-->
+<!--            android:textStyle="bold"/>-->
+<!--    </LinearLayout>-->
 </androidx.cardview.widget.CardView>

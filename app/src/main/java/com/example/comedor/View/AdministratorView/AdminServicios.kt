@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -15,6 +16,7 @@ import com.example.comedor.Models.Comedor
 import com.example.comedor.Models.Empresa
 import com.example.comedor.Models.ServiceEmpresa
 import com.example.comedor.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_admin_services_main.*
 import org.json.JSONObject
 import java.lang.Exception
@@ -25,10 +27,14 @@ class AdminServicios : AppCompatActivity() {
     private lateinit var spEmpresa : Spinner
     private lateinit var spComedor : Spinner
     private lateinit var btnSearch : Button
+    private lateinit var rv : RecyclerView
 
     internal var comedorServicioList : ArrayList<ServiceEmpresa> =ArrayList()
     internal var comedorList : ArrayList<Comedor> =ArrayList()
     internal var empresasList : ArrayList<Empresa> =ArrayList()
+
+    internal var idComedor: String? = null
+    internal var idEmpresa : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,63 +55,105 @@ class AdminServicios : AppCompatActivity() {
 
             }
 
+            override fun onItemSelected(parent: AdapterView<*>?,view: View?,position: Int,id: Long){
+//                Toast.makeText()
+            idComedor=comedorList[position].id_comedor.toString()
+
+            }
+
+        }
+        spEmpresa.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-             setComedorServicioData()
+                idEmpresa=empresasList[position].ruc
+                setComedorServicioData(idComedor, idEmpresa)
             }
 
+
         }
+        sr_comedor_servicio.setOnRefreshListener {
+            setComedorServicioData(idComedor,idEmpresa)
+        }
+//        setComedorServicioData(idComedor, idEmpresa)
     }
 
-    private fun setComedorServicioData() {
+    private fun setComedorServicioData(idComedor: String?, idEmpresa: String?) {
         comedorServicioList.clear()
-        val request = object : StringRequest(
-            Method.GET,getString(R.string.baseurl)+"administrador/verServiciosComedor",Response.Listener {
-                response->
-                try {
-                    val json = JSONObject(response)
-                    val dataArray = json.getJSONArray("servicios")
-                    for (i in 0 until dataArray.length()){
-                        val obj = dataArray.getJSONObject(i)
-                        val servicio  = ServiceEmpresa(
-                            obj.getString("id_comedor_servicio"),
-                            obj.getString("id_empresa"),
-                            obj.getString("id_comedor"),
-                            obj.getString("id_servicio"),
-                            obj.getString("nombre"),
-                            obj.getString("estado"),
-                        obj.getString("descripcion"),
-                        obj.getString("precio"))
-                        comedorServicioList.add(servicio)
+
+
+        try {
+            if(idComedor!=null && idEmpresa!=null){
+                val request = object : StringRequest(
+                    Method.GET,getString(R.string.baseurl)+"administrador/verServiciosComedor?id_comedor="+idComedor+"&id_empresa="+idEmpresa,Response.Listener {
+                            response->
+                        try {
+                            val json = JSONObject(response)
+//                            json.get
+                            val dataArray = json.getJSONArray("servicios")
+                            for (i in 0 until dataArray.length()){
+                                val obj = dataArray.getJSONObject(i)
+                                val servicio  = ServiceEmpresa(
+                                    obj.getString("id_comedor_servicio"),
+                                    obj.getString("id_empresa"),
+                                    obj.getString("id_comedor"),
+                                    obj.getString("id_servicio"),
+                                    obj.getString("nombre"),
+                                    obj.getString("estado"),
+                                    obj.getString("descripcion"),
+                                    obj.getString("precio"))
+                                comedorServicioList.add(servicio)
+                            }
+
+                            val adapter = AdminServicioAdapter(this,comedorServicioList)
+                            rv_servicios_disponibles.adapter = adapter
+                            sr_comedor_servicio.isRefreshing = false
+
+                        }catch (e : Exception){
+                            Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
+                            e.printStackTrace()
+
+                            sr_comedor_servicio.isRefreshing = false
+                        }
+                    }, Response.ErrorListener {
+                        sr_comedor_servicio.isRefreshing = false
+                        Toast.makeText(this,
+                            "Something is wrong",
+                            Toast.LENGTH_LONG).show()
+                    }
+                ){
+                    override fun getParams(): MutableMap<String, String> {
+                        return  HashMap<String, String>()
+
                     }
 
-                    val adapter = AdminServicioAdapter(this,comedorServicioList)
-                    rv_servicios_disponibles.adapter = adapter
-                    sr_comedor_servicio.isRefreshing = false
-
-                }catch (e : Exception){
-                    Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
-                    e.printStackTrace()
-
-                    sr_comedor_servicio.isRefreshing = false
+//                    override fun getHeaders(): MutableMap<String, String> {
+//                        val headers = HashMap<String,String>()
+//                        headers["Content-Type"]="application/json"
+//                        headers["id_comedor"]=idComedor.toString()
+//                        headers["id_empresa"]=idEmpresa.toString()
+//                        return headers
+//                    }
                 }
-            }, Response.ErrorListener {
-                sr_comedor_servicio.isRefreshing = false
-                Toast.makeText(this,
-                    "Something is wrong",
-                    Toast.LENGTH_LONG).show()
+                queue.add(request)
+            }else{
+               Snackbar.make(root_layout,"Seleccione una empresa o comedor ",Snackbar.LENGTH_LONG)
+                   .show()
             }
-        ){
-            override fun getParams(): MutableMap<String, String> {
-                return  HashMap<String, String>()
 
-            }
+        }catch (e : Exception){
+            e.printStackTrace()
         }
-    queue.add(request)
+
+
+
 
     }
 
@@ -158,7 +206,7 @@ class AdminServicios : AppCompatActivity() {
                 try {
 
                     val jsonObject = JSONObject(response)
-                    val dataArray = jsonObject.getJSONArray("empresa")
+                    val dataArray = jsonObject.getJSONArray("empresas")
                     for(i in 0 until dataArray.length()){
                         val obj = dataArray.getJSONObject(i)
                         val empresa = Empresa(

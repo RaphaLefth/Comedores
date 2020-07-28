@@ -7,5 +7,7 @@ class Empresa(
     val nombre : String,
     val sedes : String
 ) : Serializable{
-
+    override fun toString(): String {
+        return this.nombre
+    }
 }
