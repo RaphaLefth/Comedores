@@ -8,30 +8,25 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:weightSum="2"
         android:orientation="vertical"
 
-        android:padding="10sp"
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
-            android:layout_marginBottom="@dimen/cardview_compat_inset_shadow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="true"
-            card_view:cardBackgroundColor="#95BE24"
+            card_view:cardBackgroundColor="#2476BE"
+
             >
             <LinearLayout
                 android:padding="5dp"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <LinearLayout
-
-                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -44,8 +39,8 @@
                         android:text="DNI: "
                         android:layout_height="wrap_content"/>
                     <Space
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_width="40dp"
+                        android:layout_height="10dp"/>
                     <TextView
                         android:id="@+id/emp_dni"
                         android:gravity="left"
@@ -53,11 +48,9 @@
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/white"
                         android:text="DNI"
-                        android:paddingStart="20dp"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -67,10 +60,10 @@
                         android:layout_width="wrap_content"
                         android:fontFamily="sans-serif-black"
                         android:textColor="@color/white"
-                        android:text="Nombre"
+                        android:text="Nombre:"
                         android:layout_height="wrap_content"/>
                     <Space
-                        android:layout_width="100dp"
+                        android:layout_width="15dp"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/emp_name"
@@ -82,7 +75,6 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -93,10 +85,10 @@
 
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/white"
-                    android:text="Apellido"
+                    android:text="Apellido:"
                     android:layout_height="wrap_content"/>
                     <Space
-                        android:layout_width="100dp"
+                        android:layout_width="15dp"
                         android:layout_height="wrap_content"/>
                     <TextView
                         android:id="@+id/emp_lastname"
@@ -109,29 +101,6 @@
                 </LinearLayout>
 
 
-<!--                <TextView-->
-<!--                    android:id="@+id/emp_cat"-->
-<!--                    android:layout_width="wrap_content"-->
-
-<!--                    android:fontFamily="sans-serif-black"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:text="Correo"-->
-<!--                    android:layout_height="wrap_content"/>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/ruc_empresa_emp"-->
-<!--                    android:fontFamily="sans-serif-black"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:text="ruc"-->
-<!--                    android:layout_height="wrap_content"/>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/estado_emp"-->
-<!--                    android:layout_width="wrap_content"-->
-
-<!--                    android:fontFamily="sans-serif-black"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:text="estado"-->
-<!--                    android:layout_height="wrap_content"/>-->
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -140,54 +109,6 @@
     </LinearLayout>
 
 
-
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:padding="10sp"-->
-<!--        android:weightSum="2"-->
-<!--        android:layout_height="wrap_content">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:layout_height="wrap_content">-->
-
-<!--        </LinearLayout>-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:weightSum="2"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <LinearLayout-->
-<!--                android:id="@+id/edite_data"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:gravity="right"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <ImageView-->
-<!--                    android:layout_width="34sp"-->
-
-<!--                    android:background="@drawable/ic_edit_black_24dp"-->
-<!--                    android:layout_height="34sp"/></LinearLayout>-->
-<!--            <LinearLayout-->
-
-<!--                android:id="@+id/delete_data"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:gravity="right"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <ImageView-->
-<!--                    android:layout_width="34sp"-->
-
-<!--                    android:background="@drawable/ic_delete_black_24dp"-->
-<!--                    android:layout_height="34sp"/></LinearLayout>-->
-
-<!--        </LinearLayout>-->
-
-<!--    </LinearLayout>-->
 
 
 </LinearLayout>

@@ -6,12 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".View.ComedorView.AddedConsumo"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp">
-
-
-
-
+    android:layout_margin="20dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,151 +21,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
-                <Spinner
+                <com.dev.materialspinner.MaterialSpinner
                     android:id="@+id/spServicios"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:drawable/btn_dropdown"
-                    android:spinnerMode="dialog"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent">
 
-                <EditText
-                    android:id="@+id/etDNI"
+                </com.dev.materialspinner.MaterialSpinner>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtIL_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enterDNI"
-                    android:textAlignment="center"
-                    app:layout_constraintTop_toBottomOf="@+id/spServicios"/>
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/spServicios"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDNI"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/enterDNI"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="center"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/txtCurrentEmployee"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/bienvenido"-->
 
-<!--                    android:textAlignment="center"-->
-<!--                    android:textSize="28sp"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/spServicios"-->
-<!--                    app:layout_constraintBottom_toTopOf="@+id/imageView5"/>-->
-                <TextView
-                    android:id="@+id/tvTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/etDNI"
-                    android:textAllCaps="true"
-                    android:text="@string/total"
-                    android:textAlignment="center"/>
+
                 <Button
-                    android:id="@+id/btnAdd"
+                    android:id="@+id/btn_nuevo_servicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/add"
+                    android:background="@drawable/button_regresar"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTotal"
+                    app:layout_constraintTop_toBottomOf="@+id/txtIL_1"
                     />
                 <ImageView
+                    android:layout_margin="15dp"
                     android:id="@+id/imgUser"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_person_outline_24"
-                    app:layout_constraintTop_toBottomOf="@+id/btnAdd"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/ic_action_person"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_nuevo_servicio"
                     />
-
-                <EditText
-                    android:id="@+id/etUserName"
+                <TextView
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:inputType="none"
+                    android:id="@+id/tvNombreEmpleadoConsumo"
+                    android:text="@string/name"
+                    android:textSize="25sp"
                     app:layout_constraintTop_toBottomOf="@+id/imgUser"/>
+                <TextView
+                    android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvStatusEmp"
+                    android:text="@string/status"
+                    android:textSize="25sp"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreEmpleadoConsumo"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout_add2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add1">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/txtPlacer"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="24sp"-->
-<!--                android:text="Disfrute de su"/>-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/txtCurrentService"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textAlignment="center"-->
-<!--                android:text="Servicio" />-->
-
-<!--        </LinearLayout>-->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout_add3"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add2">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView15"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="24sp"-->
-<!--                android:text="Hora de registro"-->
-<!--                android:textAlignment="center" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView16"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Hora de Registro"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textSize="20sp"/>-->
-<!--        </LinearLayout>-->
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/layout_add4"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/layout_add3"-->
-<!--            >-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView11"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:textSize="24sp"-->
-<!--                android:text="Fecha de registro"-->
-<!--                android:textAlignment="center" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/textView12"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:text="Fecha de registro"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textAlignment="center"/>-->
-
-<!--        </LinearLayout>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -2,10 +2,10 @@ package com.example.comedor.Models
 
 import java.io.Serializable
 
-data class Servicio(
-    val id : String,
+class Categoria(
+    val id : Int,
     val descripcion : String
-) : Serializable{
+) : Serializable {
     override fun toString(): String {
         return descripcion
     }

@@ -1,6 +1,7 @@
 package com.example.comedor.View.AdministratorView
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.dev.materialspinner.MaterialSpinner
 import com.example.comedor.Adapters.AdminEmpleadosAdapter
+import com.example.comedor.AdminEmpleadoAgregar
 import com.example.comedor.Models.Comedor
 import com.example.comedor.Models.Employees
 import com.example.comedor.R
@@ -38,6 +40,12 @@ class AdminEmployess : AppCompatActivity(),  View.OnClickListener,AdapterView.On
     internal var comedoresList : ArrayList<Comedor> = ArrayList()
 
     internal var displayedList : ArrayList<Employees> = ArrayList()
+    override fun onResume() {
+        super.onResume()
+        setupRecyclerView()
+        getComedores()
+        getEmpleados()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +53,7 @@ class AdminEmployess : AppCompatActivity(),  View.OnClickListener,AdapterView.On
 
         supportActionBar!!.title = "Personal"
         sp = findViewById(R.id.sp_test)
-        btnbuscar = findViewById(R.id.btn_buscar_emp)
+//        btnbuscar = findViewById(R.id.btn_buscar_emp)
         btnagregar = findViewById(R.id.btn_agregar_emp)
 //        dni = findViewById(R.id.edt_dni_emp)
         queue= Volley.newRequestQueue(this)
@@ -70,8 +78,16 @@ class AdminEmployess : AppCompatActivity(),  View.OnClickListener,AdapterView.On
         swipeRefreshPersonal.setOnRefreshListener {
             setupRecyclerView()
         }
+        btnagregar.setOnClickListener{
+            agregarEmpleado()
+        }
 
 
+    }
+
+    private fun agregarEmpleado() {
+        val i  = Intent(applicationContext,AdminEmpleadoAgregar::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        this.startActivity(i)
     }
 
 
@@ -246,7 +262,7 @@ class AdminEmployess : AppCompatActivity(),  View.OnClickListener,AdapterView.On
     }
 
     private fun buscarEmpleado() {
-        val dni = dni.text.toString()
+//        val dni = dni.text.toString()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

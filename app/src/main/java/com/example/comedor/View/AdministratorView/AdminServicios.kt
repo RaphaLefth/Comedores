@@ -58,6 +58,8 @@ class AdminServicios : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?,view: View?,position: Int,id: Long){
 //                Toast.makeText()
             idComedor=comedorList[position].id_comedor.toString()
+//            idEmpresa=empresasList[position].ruc
+       setComedorServicioData(idComedor,idEmpresa)
 
             }
 
@@ -115,18 +117,20 @@ class AdminServicios : AppCompatActivity() {
                             val adapter = AdminServicioAdapter(this,comedorServicioList)
                             rv_servicios_disponibles.adapter = adapter
                             sr_comedor_servicio.isRefreshing = false
-
+                            adapter.notifyDataSetChanged()
                         }catch (e : Exception){
                             Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
                             e.printStackTrace()
 
                             sr_comedor_servicio.isRefreshing = false
+                            comedorList.clear()
                         }
                     }, Response.ErrorListener {
                         sr_comedor_servicio.isRefreshing = false
                         Toast.makeText(this,
                             "Something is wrong",
                             Toast.LENGTH_LONG).show()
+                        comedorList.clear()
                     }
                 ){
                     override fun getParams(): MutableMap<String, String> {
@@ -186,12 +190,14 @@ class AdminServicios : AppCompatActivity() {
                     Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
                     sr_comedor_servicio.isRefreshing = false
+                    comedorList.clear()
                 }
             }, Response.ErrorListener {
                 sr_comedor_servicio.isRefreshing = false
                 Toast.makeText(this,
                     "Something is wrong",
                     Toast.LENGTH_LONG).show()
+                comedorList.clear()
             }
         ){
             override fun getParams(): MutableMap<String, String> {

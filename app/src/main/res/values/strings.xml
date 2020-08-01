@@ -61,5 +61,6 @@
     <string name="buscar">Buscar</string>
     <string name="lista_de_empleados">Lista de Personal</string>
     <string name="restablecerPassword">Restablecer constraseña</string>
+    <string name="categoria">Categoria</string>
 
 </resources>

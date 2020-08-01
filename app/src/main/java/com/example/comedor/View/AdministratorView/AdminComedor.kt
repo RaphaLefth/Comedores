@@ -38,6 +38,10 @@ class AdminComedor : AppCompatActivity() {
     internal var getUserDataList: ArrayList<Employees> = ArrayList()
 
     internal var comedoresList : ArrayList<Comedor> = ArrayList()
+    override fun onResume() {
+        super.onResume()
+        setupRecyclerView()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_comedor)
@@ -50,7 +54,7 @@ class AdminComedor : AppCompatActivity() {
         telefono = findViewById(R.id.edt_telefono_comedor)
         correo = findViewById(R.id.edt_correo_comedor)
         queue= Volley.newRequestQueue(this)
-
+        adapter = AdminComedorAdapter(this,comedoresList)
         swipeRefresh.setOnRefreshListener { setupRecyclerView() }
         setupRecyclerView()
         btnagregar.setOnClickListener{
@@ -104,7 +108,7 @@ class AdminComedor : AppCompatActivity() {
 //                    showToast(jsonObject.getString("msg"))
                 }
                 catch (e: Exception) {
-                    Toast.makeText(this, "Exception error"+e.message, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Exception error"+e.message, Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
                 }
             }, Response.ErrorListener {
@@ -122,6 +126,7 @@ class AdminComedor : AppCompatActivity() {
                 params["correo"] = correo.text.toString()
 
                 return params
+
 
             }
         }
@@ -158,20 +163,21 @@ class AdminComedor : AppCompatActivity() {
                             obj.getString("correo"))
                         comedoresList.add(comedor)
                     }
-                    val adapter = AdminComedorAdapter(this,comedoresList)
+                    adapter = AdminComedorAdapter(this,comedoresList)
                     userrecyclerview.adapter = adapter
                     swipeRefresh.isRefreshing = false
+                    adapter.notifyDataSetChanged()
                 }catch (e:java.lang.Exception){
-                    Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Exception error", Toast.LENGTH_SHORT).show()
                     e.printStackTrace()
 
                     swipeRefresh.isRefreshing = false
                 }
         },Response.ErrorListener {
                 swipeRefresh.isRefreshing = false
-                Toast.makeText(this,
-                    "Something is wrong",
-                    Toast.LENGTH_LONG).show()
+//                Toast.makeText(this,
+//                    "Something is wrong",
+//                    Toast.LENGTH_LONG).show()
             }
         ){
             override fun getParams(): MutableMap<String, String> {
@@ -190,6 +196,7 @@ class AdminComedor : AppCompatActivity() {
             }
         }
         queue.add(request)
+        adapter.notifyDataSetChanged()
     }
 
 

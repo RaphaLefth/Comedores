@@ -5,4 +5,14 @@
         <item>Comedor</item>
         <item>Reporte</item>
     </string-array>
+    <string-array name="status">
+        <item>Seleccione</item>
+        <item>Empleado</item>
+        <item>Obrero</item>
+    </string-array>
+    <string-array name="es">
+        <item>Activo</item>
+        <item>Inactivo</item>
+
+    </string-array>
 </resources>

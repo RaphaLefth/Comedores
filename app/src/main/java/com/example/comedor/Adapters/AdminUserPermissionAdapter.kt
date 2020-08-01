@@ -46,6 +46,7 @@ class AdminUserPermissionAdapter(var context: Context, private var arrayList: Ar
                 val userPosition = arrayList[currentPosition]
 
                 i.putExtra("getUserInf",userPosition)
+                
                 context.startActivity(i)
             }
 //

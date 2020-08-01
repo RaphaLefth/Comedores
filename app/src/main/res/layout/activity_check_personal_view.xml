@@ -4,32 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingRight="50dp"
-    android:paddingLeft="50dp"
-    android:paddingTop="100dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="50dp"
     tools:context=".View.ComedorView.CheckPersonalView">
 
-    <Spinner
-        android:id="@+id/spEmpresa"
+
+    <com.dev.materialspinner.MaterialSpinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"/>
-    <EditText
+        android:id="@+id/sp_empresa_comedor"
+        >
+
+    </com.dev.materialspinner.MaterialSpinner>
+    <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:hint="@string/enterDNI"
-        android:inputType="number"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/search"/>
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_search"
+            android:text="@string/search"/>
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listPersonal"
+            android:id="@+id/rv_personal_comedor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

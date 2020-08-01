@@ -1,24 +1,18 @@
 package com.example.comedor.View.AdministratorView
 
-import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
-import androidx.appcompat.widget.AlertDialogLayout
-import androidx.core.view.get
 import com.dev.materialspinner.MaterialSpinner
 import com.example.comedor.Models.User
 import com.example.comedor.R
 import com.example.comedor.View.RecoverView.ForgotPassActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_admin_edit_user_data.*
 import java.lang.Exception
 
@@ -171,13 +165,14 @@ class AdminEditUserData : AppCompatActivity(), AdapterView.OnItemSelectedListene
     }
 
     private fun c(s : String): String {
-        var r = "0"
-        when(s){
-            "Administrador"-> r="1"
-            "Comedor"-> r="2"
-            "Reporte"->r="3"
+        return when(s){
+            "Administrador"-> "1"
+            "Comedor"-> "2"
+            "Reporte"-> "3"
+            else->{
+                user.typeUser
+            }
         }
-        return r
     }
 
     private fun updateUser(user : User?) {

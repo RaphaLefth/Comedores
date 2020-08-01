@@ -17,6 +17,8 @@ import com.android.volley.toolbox.Volley
 import com.example.comedor.Models.Employees
 import com.example.comedor.R
 import com.example.comedor.View.AdministratorView.AdminEditDataComedorActivity
+import com.example.comedor.View.AdministratorView.AdminEditUserData
+import com.example.comedor.View.AdministratorView.Admin_empleado_info
 import kotlinx.android.synthetic.main.admin_employe_layout_list.view.*
 //import kotlinx.android.synthetic.main.admincomedorlayout.view.delete_data
 //import kotlinx.android.synthetic.main.admincomedorlayout.view.edite_data
@@ -64,6 +66,17 @@ class AdminEmpleadosAdapter(val context: Context, private val empleados: ArrayLi
 ////
 ////                notifyDataSetChanged()
 ////            }
+
+        init {
+            //click sobre el recycler
+            itemView.setOnClickListener {
+                val i = Intent(context,Admin_empleado_info::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                val userPosition = empleados[currentPosition]
+
+                i.putExtra("getEmpleadoInf", userPosition)
+                context.startActivity(i)
+            }
+        }
 //            //edit button
 ////            itemsEmpleadoView.edite_data.setOnClickListener {
 ////
